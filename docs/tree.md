@@ -1,10 +1,10 @@
-# atlas-mcp-server - Directory Structure
+# deepresearch-mcp-server - Directory Structure
 
-Generated on: 2025-04-25 15:04:50
+Generated on: 2025-06-30 04:50:00
 
 
 ```
-atlas-mcp-server
+deepresearch-mcp-server
 ├── docs
     └── tree.md
 ├── examples
@@ -16,15 +16,18 @@ atlas-mcp-server
     ├── deep-research-example
     │   ├── covington_community_grant_research.md
     │   └── full-export.json
-    ├── .DS_Store
     └── README.md
 ├── scripts
+    ├── build.js
     ├── clean.ts
     ├── db-backup.ts
     ├── db-import.ts
+    ├── dev.js
     ├── make-executable.ts
     └── tree.ts
 ├── src
+    ├── cli
+    │   └── index.ts
     ├── config
     │   └── index.ts
     ├── mcp
@@ -103,12 +106,28 @@ atlas-mcp-server
     │   │   │   ├── responseFormat.ts
     │   │   │   ├── types.ts
     │   │   │   └── updateTask.ts
-    │   │   └── atlas_unified_search
+    │   │   ├── atlas_unified_search
     │   │   │   ├── index.ts
     │   │   │   ├── responseFormat.ts
     │   │   │   ├── types.ts
     │   │   │   └── unifiedSearch.ts
+    │   │   ├── grok3.ts
+    │   │   ├── openai-deep-research.ts
+    │   │   └── perplexity-sonar.ts
+    │   ├── router.ts
     │   └── server.ts
+    ├── middleware
+    │   ├── rateLimiter.ts
+    │   └── validation.ts
+    ├── providers
+    │   ├── agentspace.ts
+    │   ├── firecrawl.ts
+    │   ├── grok.ts
+    │   ├── index.ts
+    │   ├── openai.ts
+    │   └── perplexity.ts
+    ├── schemas
+    │   └── deepResearch.ts
     ├── services
     │   └── neo4j
     │   │   ├── backupRestoreService.ts
@@ -128,21 +147,23 @@ atlas-mcp-server
     │   └── tool.ts
     ├── utils
     │   ├── errorHandler.ts
+    │   ├── errors.ts
     │   ├── idGenerator.ts
     │   ├── logger.ts
     │   ├── responseFormatter.ts
     │   └── security.ts
-    ├── .DS_Store
     └── index.ts
 ├── .clinerules
 ├── .repomixignore
 ├── CHANGELOG.md
+├── CONFIG.md
 ├── docker-compose.yml
 ├── LICENSE
 ├── package-lock.json
 ├── package.json
 ├── README.md
 ├── repomix.config.json
+├── test-server.js
 └── tsconfig.json
 
 ```

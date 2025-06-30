@@ -1,15 +1,15 @@
-import { nanoid } from 'nanoid';
-import { KnowledgeService } from '../../../services/neo4j/knowledgeService.js';
-import { ProjectService } from '../../../services/neo4j/projectService.js';
-import { TaskService } from '../../../services/neo4j/taskService.js'; // Import TaskService
-import { BaseErrorCode, McpError } from '../../../types/errors.js';
-import { logger } from '../../../utils/logger.js';
-import { sanitizeInput } from '../../../utils/security.js';
+import { nanoid } from 'nanoid'
+import { KnowledgeService } from '../../../services/neo4j/knowledgeService.js'
+import { ProjectService } from '../../../services/neo4j/projectService.js'
+import { TaskService } from '../../../services/neo4j/taskService.js' // Import TaskService
+import { BaseErrorCode, McpError } from '../../../types/errors.js'
+import { logger } from '../../../utils/logger.js'
+import { sanitizeInput } from '../../../utils/security.js'
 import {
   AtlasDeepResearchInput,
   DeepResearchResult,
   DeepResearchSubTopicNodeResult,
-} from './types.js';
+} from './types.js'
 
 /**
  * Generates a unique ID suitable for knowledge nodes using nanoid.
@@ -18,8 +18,8 @@ import {
  * @param prefix - The prefix to use for the ID (defaults to 'knw').
  * @returns A unique ID string (e.g., 'plan_aBcDeFgHiJkL').
  */
-function generateKnowledgeId(prefix: string = "knw"): string {
-  return `${prefix}_${nanoid(12)}`; // Using 12 characters for increased uniqueness
+function generateKnowledgeId(prefix: string = 'knw'): string {
+  return `${prefix}_${nanoid(12)}` // Using 12 characters for increased uniqueness
 }
 
 /**
@@ -38,32 +38,32 @@ export async function deepResearch(
 ): Promise<DeepResearchResult> {
   logger.info(
     `Initiating deep research plan creation for project ID: ${input.projectId}, Topic: "${input.researchTopic}"`
-  );
+  )
 
   try {
     // 1. Validate Project Existence
     // Ensure the specified project exists before proceeding.
-    const project = await ProjectService.getProjectById(input.projectId);
+    const project = await ProjectService.getProjectById(input.projectId)
     if (!project) {
       throw new McpError(
         BaseErrorCode.NOT_FOUND,
         `Project with ID "${input.projectId}" not found. Cannot create research plan.`
-      );
+      )
     }
-    logger.debug(`Project validation successful for ID: ${input.projectId}`);
+    logger.debug(`Project validation successful for ID: ${input.projectId}`)
 
     // 2. Prepare Root Research Plan Node Data
-    const planNodeId = input.planNodeId || generateKnowledgeId('plan');
+    const planNodeId = input.planNodeId || generateKnowledgeId('plan')
     const rootTextParts: string[] = [
       `Research Plan: ${sanitizeInput.string(input.researchTopic)}`,
       `Goal: ${sanitizeInput.string(input.researchGoal)}`,
-    ];
+    ]
     if (input.scopeDefinition) {
       rootTextParts.push(
         `Scope: ${sanitizeInput.string(input.scopeDefinition)}`
-      );
+      )
     }
-    const rootText = rootTextParts.join('\n\n'); // Combine parts into the main text content
+    const rootText = rootTextParts.join('\n\n') // Combine parts into the main text content
 
     // Define tags for the root node
     const rootTags = [
@@ -76,14 +76,16 @@ export async function deepResearch(
         .replace(/\s+/g, '-') // Convert topic to a URL-friendly tag format
         .slice(0, 50)}`, // Limit tag length
       ...(input.initialTags || []), // Include any user-provided initial tags
-    ];
+    ]
 
     // 3. Create Root Research Plan Node and link to Project
     // Assuming KnowledgeService.addKnowledge handles linking if projectId is provided,
     // or we might need a specific method like addKnowledgeAndLinkToProject.
     // For now, assume addKnowledge creates the node and links it via projectId.
     // A more robust approach might involve explicit relationship creation.
-    logger.debug(`Attempting to create root research plan node with ID: ${planNodeId}`);
+    logger.debug(
+      `Attempting to create root research plan node with ID: ${planNodeId}`
+    )
     await KnowledgeService.addKnowledge({
       id: planNodeId,
       projectId: input.projectId,
@@ -91,32 +93,35 @@ export async function deepResearch(
       domain: input.researchDomain || 'research',
       tags: rootTags,
       citations: [],
-    });
+    })
     // If explicit linking is needed:
     // await KnowledgeService.linkKnowledgeToProject(planNodeId, input.projectId, 'CONTAINS_PLAN');
-    logger.info(`Root research plan node ${planNodeId} created and associated with project.`);
+    logger.info(
+      `Root research plan node ${planNodeId} created and associated with project.`
+    )
 
     // 4. Create Knowledge Nodes and Optional Tasks for Each Sub-Topic
-    const createdSubTopicNodes: DeepResearchSubTopicNodeResult[] = [];
-    const tasksToCreate = input.createTasks ?? true; // Default to true if not specified
+    const createdSubTopicNodes: DeepResearchSubTopicNodeResult[] = []
+    const tasksToCreate = input.createTasks ?? true // Default to true if not specified
     logger.debug(
       `Processing ${input.subTopics.length} sub-topics to create knowledge nodes ${
         tasksToCreate ? 'and tasks' : ''
       }.`
-    );
+    )
 
-    for (const subTopic of input.subTopics) {
-      const subTopicNodeId = subTopic.nodeId || generateKnowledgeId('sub');
-      let createdTaskId: string | undefined = undefined;
+    // Process all sub-topics in parallel for better performance
+    const subTopicPromises = input.subTopics.map(async (subTopic) => {
+      const subTopicNodeId = subTopic.nodeId || generateKnowledgeId('sub')
+      let createdTaskId: string | undefined = undefined
 
       // Sanitize search queries before joining
       const searchQueriesString = (subTopic.initialSearchQueries || [])
         .map((kw) => sanitizeInput.string(kw))
-        .join(', ');
+        .join(', ')
       // Construct the text content for the sub-topic node
       const subTopicText = `Research Question: ${sanitizeInput.string(
         subTopic.question
-      )}\n\nInitial Search Queries: ${searchQueriesString || 'None provided'}`;
+      )}\n\nInitial Search Queries: ${searchQueriesString || 'None provided'}`
 
       // Define tags for the sub-topic node
       const subTopicTags = [
@@ -131,11 +136,11 @@ export async function deepResearch(
               .replace(/\s+/g, '-')
               .slice(0, 50)}`
         ) || []),
-      ];
+      ]
 
       logger.debug(
         `Attempting to create sub-topic node with ID: ${subTopicNodeId} for question: "${subTopic.question}"`
-      );
+      )
       // Create the sub-topic knowledge node and link it to the parent plan node
       // Assuming addKnowledge links to project, now link to parent knowledge node
       await KnowledgeService.addKnowledge({
@@ -145,26 +150,26 @@ export async function deepResearch(
         domain: input.researchDomain || 'research', // Inherit domain from the root plan
         tags: subTopicTags,
         citations: [], // Sub-topics also start with no citations
-      });
+      })
       // Explicitly link sub-topic to parent plan node
       await KnowledgeService.linkKnowledgeToKnowledge(
-          subTopicNodeId,
-          planNodeId,
-          'IS_SUBTOPIC_OF' // Relationship type from child to parent
-      );
-      logger.info(`Sub-topic node ${subTopicNodeId} created and linked to plan ${planNodeId}.`);
+        subTopicNodeId,
+        planNodeId,
+        'IS_SUBTOPIC_OF' // Relationship type from child to parent
+      )
+      logger.info(
+        `Sub-topic node ${subTopicNodeId} created and linked to plan ${planNodeId}.`
+      )
 
       // Create Task if requested
       if (tasksToCreate) {
-        logger.debug(`Creating task for sub-topic node ${subTopicNodeId}`);
-        const taskTitle = `Research: ${sanitizeInput.string(
-          subTopic.question
-        )}`;
+        logger.debug(`Creating task for sub-topic node ${subTopicNodeId}`)
+        const taskTitle = `Research: ${sanitizeInput.string(subTopic.question)}`
         const taskDescription = `Investigate the research question: "${sanitizeInput.string(
           subTopic.question
         )}"\n\nInitial Search Queries: ${
           searchQueriesString || 'None provided'
-        }\n\nAssociated Knowledge Node: ${subTopicNodeId}`;
+        }\n\nAssociated Knowledge Node: ${subTopicNodeId}`
 
         // Use TaskService to create the task and link it to the project
         const taskResult = await TaskService.createTask({
@@ -175,42 +180,78 @@ export async function deepResearch(
           status: subTopic.initialStatus || 'todo',
           assignedTo: subTopic.assignedTo,
           completionRequirements: `Gather relevant information and synthesize findings related to the research question. Update associated knowledge node ${subTopicNodeId}.`,
-          outputFormat: 'Update to knowledge node, potentially new linked knowledge items.',
+          outputFormat:
+            'Update to knowledge node, potentially new linked knowledge items.',
           taskType: 'research', // Specific task type
           // tags: [`research-task`, `plan:${planNodeId}`], // Optional tags for the task
-        });
+        })
 
-        createdTaskId = taskResult.id;
+        createdTaskId = taskResult.id
         logger.info(
           `Task ${createdTaskId} created for sub-topic ${subTopicNodeId}.`
-        );
+        )
 
         // Link Task to the Sub-Topic Knowledge Node
         await TaskService.linkTaskToKnowledge(
           createdTaskId,
           subTopicNodeId,
           'ADDRESSES' // Relationship: Task ADDRESSES Knowledge Node
-        );
+        )
         logger.debug(
           `Linked task ${createdTaskId} to knowledge node ${subTopicNodeId} with ADDRESSES relationship.`
-        );
+        )
       }
 
-      // Record the details of the created sub-topic node and task
-      createdSubTopicNodes.push({
+      // Return the details of the created sub-topic node and task
+      return {
         question: subTopic.question,
         nodeId: subTopicNodeId,
         taskId: createdTaskId, // Include task ID if created
         initialSearchQueries: subTopic.initialSearchQueries || [],
-      });
+      }
+    })
+
+    // Wait for all sub-topics to be processed in parallel
+    const subTopicResults = await Promise.allSettled(subTopicPromises)
+
+    // Process results and handle any failures
+    const errors: string[] = []
+    for (const [index, result] of subTopicResults.entries()) {
+      if (result.status === 'fulfilled') {
+        createdSubTopicNodes.push(result.value)
+      } else {
+        const subTopic = input.subTopics[index]
+        const errorMessage = `Failed to create sub-topic "${subTopic.question}": ${result.reason}`
+        errors.push(errorMessage)
+        logger.error(errorMessage, {
+          subTopic,
+          error: result.reason,
+        })
+      }
+    }
+
+    // If all sub-topic creations failed, throw an error
+    if (createdSubTopicNodes.length === 0 && errors.length > 0) {
+      throw new Error(
+        `Failed to create any sub-topic nodes: ${errors.join('; ')}`
+      )
+    }
+
+    // Log warning if there were partial failures
+    if (errors.length > 0) {
+      logger.warn('Some sub-topic creations failed', {
+        successful: createdSubTopicNodes.length,
+        failed: errors.length,
+        errors,
+      })
     }
 
     // 5. Assemble and Return the Result
     const taskMessage = tasksToCreate
       ? `and ${createdSubTopicNodes.length} associated tasks`
-      : '';
-    const successMessage = `Successfully created deep research plan "${input.researchTopic}" with root research plan node ${planNodeId}, ${createdSubTopicNodes.length} sub-topic nodes ${taskMessage}.`;
-    logger.info(successMessage);
+      : ''
+    const successMessage = `Successfully created deep research plan "${input.researchTopic}" with root research plan node ${planNodeId}, ${createdSubTopicNodes.length} sub-topic nodes ${taskMessage}.`
+    logger.info(successMessage)
 
     return {
       success: true,
@@ -219,20 +260,19 @@ export async function deepResearch(
       initialTags: input.initialTags || [], // Return the initial tags applied to the root
       subTopicNodes: createdSubTopicNodes, // Return details of created sub-topic nodes and tasks
       tasksCreated: tasksToCreate, // Indicate if tasks were created
-    };
-
+    }
   } catch (error) {
     // Log the error with context
-    logger.error("Error occurred during deep research plan creation", {
+    logger.error('Error occurred during deep research plan creation', {
       errorMessage: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
       projectId: input.projectId,
       researchTopic: input.researchTopic,
-    });
+    })
 
     // Re-throw McpError instances directly
     if (error instanceof McpError) {
-      throw error;
+      throw error
     }
     // Wrap unexpected errors in a generic McpError
     throw new McpError(
@@ -240,6 +280,6 @@ export async function deepResearch(
       `Failed to create deep research plan (Project: ${input.projectId}, Topic: "${input.researchTopic}"): ${
         error instanceof Error ? error.message : String(error)
       }`
-    );
+    )
   }
 }

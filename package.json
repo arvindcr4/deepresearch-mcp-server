@@ -11,13 +11,35 @@
     "build": "tsc && node --loader ts-node/esm scripts/make-executable.ts dist/index.js",
     "start": "node dist/index.js",
     "dev": "tsc -w",
+    "dev:cli": "node --loader ts-node/esm src/index.ts",
+    "dev:http-server": "node --loader ts-node/esm src/index.ts http-server",
+    "test:cli": "node --loader ts-node/esm test-cli.ts",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "rebuild": "ts-node --esm scripts/clean.ts && npm run build",
     "tree": "ts-node --esm scripts/tree.ts",
     "db:backup": "node --loader ts-node/esm scripts/db-backup.ts",
-    "db:import": "node --loader ts-node/esm scripts/db-import.ts"
+    "db:import": "node --loader ts-node/esm scripts/db-import.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:unit": "jest --testPathIgnorePatterns=e2e",
+    "test:e2e": "jest --testPathPattern=e2e",
+    "test:validation": "node --loader ts-node/esm src/test-validation.ts",
+    "test:validation:verbose": "VERBOSE=1 node --loader ts-node/esm src/test-validation.ts",
+    "lint": "eslint . --ext .ts",
+    "memory:profile": "node --expose-gc --loader ts-node/esm scripts/memory-profile.ts",
+    "memory:snapshot": "node --expose-gc --loader ts-node/esm -e 'require(\"heapdump\").writeSnapshot(\"./memory-profiles/manual-\" + Date.now() + \".heapsnapshot\")'",
+    "coverage:nyc": "nyc npm test",
+    "coverage:c8": "c8 npm test",
+    "coverage:report": "npm run test:coverage && open coverage/lcov-report/index.html",
+    "coverage:badges": "node scripts/generate-badges.js",
+    "publish:npm": "./scripts/publish.sh",
+    "release:github": "./scripts/create-release.sh",
+    "docker:build": "docker build -t deepresearch-mcp-server:latest .",
+    "docker:build:version": "docker build -t deepresearch-mcp-server:$(node -p \"require('./package.json').version\") .",
+    "prepublishOnly": "npm run build && npm test && npm run lint"
   },
   "keywords": [
     "mcp",
@@ -41,8 +63,23 @@
     "neo4j-integration",
     "three-tier-architecture"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyanheads/deepresearch-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cyanheads/deepresearch-mcp-server/issues"
+  },
+  "homepage": "https://github.com/cyanheads/deepresearch-mcp-server#readme",
   "author": "@cyanheads",
   "license": "Apache-2.0",
+  "files": [
+    "dist/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    ".env.example"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.2",
     "@types/express": "^5.0.1",
@@ -51,7 +88,9 @@
     "axios": "^1.7.2",
     "bottleneck": "^2.19.5",
     "commander": "^13.1.0",
+    "cookie-parser": "^1.4.7",
     "cross-env": "^7.0.3",
+    "csrf": "^3.1.0",
     "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
     "dotenv-expand": "^11.0.6",
@@ -65,8 +104,28 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/jest": "^30.0.0",
+    "@types/nock": "^10.0.3",
+    "@types/node-fetch": "^2.6.12",
     "@types/node-schedule": "^2.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "c8": "^10.1.3",
+    "eslint": "^9.30.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "heapdump": "^0.3.15",
+    "jest": "^30.0.3",
+    "nock": "^14.0.5",
+    "node-fetch": "^3.3.2",
+    "nyc": "^17.1.0",
+    "pprof": "^4.0.0",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.0",
+    "v8-profiler-next": "^1.10.0"
   }
 }

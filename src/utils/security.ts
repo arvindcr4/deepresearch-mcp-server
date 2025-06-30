@@ -1,89 +1,89 @@
-import { McpError, BaseErrorCode } from '../types/errors.js';
-import { logger } from './logger.js';
+import { McpError, BaseErrorCode } from '../types/errors.js'
+import { logger } from './logger.js'
 
 // Rate limiting implementation
 interface RateLimitConfig {
-  windowMs: number;
-  maxRequests: number;
+  windowMs: number
+  maxRequests: number
 }
 
 interface RateLimitEntry {
-  count: number;
-  resetTime: number;
+  count: number
+  resetTime: number
 }
 
 class RateLimiter {
-  private limits: Map<string, RateLimitEntry>;
+  private limits: Map<string, RateLimitEntry>
 
   constructor(private config: RateLimitConfig) {
-    this.limits = new Map();
+    this.limits = new Map()
   }
 
   check(key: string): void {
-    const now = Date.now();
-    const entry = this.limits.get(key);
+    const now = Date.now()
+    const entry = this.limits.get(key)
 
     if (!entry || now >= entry.resetTime) {
       // Reset or create new entry
       this.limits.set(key, {
         count: 1,
-        resetTime: now + this.config.windowMs
-      });
-      return;
+        resetTime: now + this.config.windowMs,
+      })
+      return
     }
 
     if (entry.count >= this.config.maxRequests) {
-      const waitTime = Math.ceil((entry.resetTime - now) / 1000);
+      const waitTime = Math.ceil((entry.resetTime - now) / 1000)
       throw new McpError(
         BaseErrorCode.RATE_LIMITED,
         `Rate limit exceeded. Please try again in ${waitTime} seconds.`,
         { waitTime }
-      );
+      )
     }
 
-    entry.count++;
+    entry.count++
   }
 }
 
 // Create default rate limiter instance
 export const rateLimiter = new RateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  maxRequests: 100 // 100 requests per window
-});
+  maxRequests: 100, // 100 requests per window
+})
 
 // Security configuration
 interface SecurityConfig {
-  authRequired: boolean;
+  authRequired: boolean
 }
 
 let securityConfig: SecurityConfig = {
-  authRequired: false // Default to optional authentication
-};
+  authRequired: true, // Default to required authentication for security
+}
 
 export const configureSecurity = (config: Partial<SecurityConfig>) => {
   securityConfig = {
     ...securityConfig,
-    ...config
-  };
-};
+    ...config,
+  }
+}
 
 // Permission checking
 interface UserContext {
-  id?: string;
-  roles?: string[];
-  permissions?: string[];
+  id?: string
+  roles?: string[]
+  permissions?: string[]
 }
 
 // Request context for tracking and logging
 export interface RequestContext {
-  requestId: string;
-  timestamp: string;
+  requestId: string
+  timestamp: string
 }
 
 export interface ToolContext {
-  user?: UserContext;
-  requestContext?: RequestContext;
-  [key: string]: unknown;
+  user?: UserContext
+  requestContext?: RequestContext
+  [key: string]: unknown
 }
 
 export const checkPermission = (
@@ -92,17 +92,15 @@ export const checkPermission = (
 ): void => {
   // Skip authentication check if not required
   if (!securityConfig.authRequired) {
-    return;
+    return
   }
 
-  const user = context.user;
-  
+  const user = context.user
+
   if (!user?.id) {
-    throw new McpError(
-      BaseErrorCode.UNAUTHORIZED,
-      'Authentication required',
-      { requiredPermission }
-    );
+    throw new McpError(BaseErrorCode.UNAUTHORIZED, 'Authentication required', {
+      requiredPermission,
+    })
   }
 
   if (!user.permissions?.includes(requiredPermission)) {
@@ -110,52 +108,72 @@ export const checkPermission = (
       BaseErrorCode.UNAUTHORIZED,
       `Missing required permission: ${requiredPermission}`,
       { requiredPermission }
-    );
+    )
   }
-};
+}
 
 // Input sanitization utilities
 export const sanitizeInput = {
   // Remove potentially dangerous characters from strings
   string: (input: string): string => {
-    return input.replace(/[<>]/g, '');
+    return input.replace(/[<>]/g, '')
   },
 
   // Sanitize URLs
   url: (input: string): string => {
     try {
-      const url = new URL(input);
+      const url = new URL(input)
       // Only allow http and https protocols
       if (!['http:', 'https:'].includes(url.protocol)) {
-        throw new Error('Invalid protocol');
+        throw new Error('Invalid protocol')
       }
-      return url.toString();
+      return url.toString()
     } catch (error) {
-      throw new McpError(
-        BaseErrorCode.VALIDATION_ERROR,
-        'Invalid URL format',
-        { input }
-      );
+      throw new McpError(BaseErrorCode.VALIDATION_ERROR, 'Invalid URL format', {
+        input,
+      })
     }
   },
 
   // Sanitize file paths
   path: (input: string): string => {
-    // Remove path traversal attempts
-    return input.replace(/\.\./g, '');
-  }
-};
+    // More comprehensive path sanitization
+    // Remove various path traversal patterns
+    let sanitized = input
+      // Remove ../ and ..\ patterns
+      .replace(/\.\.[/\\]/g, '')
+      // Remove standalone ..
+      .replace(/\.\./g, '')
+      // Remove null bytes
+      .replace(/\0/g, '')
+      // Remove URL encoded traversal patterns
+      .replace(/%2e%2e[%2f%5c]/gi, '')
+      .replace(/%252e%252e[%252f%255c]/gi, '')
+      // Remove double slashes
+      .replace(/\/\//g, '/')
+      .replace(/\\\\/g, '\\')
+      // Trim whitespace
+      .trim()
+
+    // Ensure the path doesn't start with / or \ to prevent absolute paths
+    if (sanitized.startsWith('/') || sanitized.startsWith('\\')) {
+      sanitized = sanitized.substring(1)
+    }
+
+    return sanitized
+  },
+}
 
 // Request tracing
 export const createRequestContext = (): RequestContext => {
-  const requestId = crypto.randomUUID();
-  const timestamp = new Date().toISOString();
+  const requestId = crypto.randomUUID()
+  const timestamp = new Date().toISOString()
 
   return {
     requestId,
-    timestamp
-  };
-};
+    timestamp,
+  }
+}
 
 // Middleware creator for tools
 export const createToolMiddleware = (toolName: string) => {
@@ -164,49 +182,48 @@ export const createToolMiddleware = (toolName: string) => {
     input: unknown,
     context: ToolContext = {}
   ) => {
-    const requestContext = createRequestContext();
+    const requestContext = createRequestContext()
     const contextWithRequest = {
       ...context,
-      requestContext
-    };
-    
+      requestContext,
+    }
+
     try {
       // Rate limiting
-      rateLimiter.check(`${toolName}:${context.user?.id || 'anonymous'}`);
-      
+      rateLimiter.check(`${toolName}:${context.user?.id || 'anonymous'}`)
+
       logger.info(`Tool execution started: ${toolName}`, {
         requestId: requestContext.requestId,
         timestamp: requestContext.timestamp,
-        input
-      });
+        input,
+      })
 
-      const result = await handler(input, contextWithRequest);
+      const result = await handler(input, contextWithRequest)
 
       logger.info(`Tool execution completed: ${toolName}`, {
         requestId: requestContext.requestId,
-        timestamp: requestContext.timestamp
-      });
+        timestamp: requestContext.timestamp,
+      })
 
-      return result;
-
+      return result
     } catch (error) {
       logger.error(`Tool execution failed: ${toolName}`, {
         requestId: requestContext.requestId,
         timestamp: requestContext.timestamp,
-        error
-      });
+        error,
+      })
 
       if (error instanceof McpError) {
-        return error.toResponse();
+        return error.toResponse()
       }
 
       // Handle unknown errors
-      const unknownError = error as Error;
+      const unknownError = error as Error
       return new McpError(
         BaseErrorCode.INTERNAL_ERROR,
         'An unexpected error occurred',
         { message: unknownError.message || String(error) }
-      ).toResponse();
+      ).toResponse()
     }
-  };
-};
+  }
+}

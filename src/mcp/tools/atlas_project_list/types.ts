@@ -1,33 +1,38 @@
-import { ProjectStatus } from '../../../types/mcp.js';
-import { Neo4jProject } from '../../../services/neo4j/types.js';
+import { ProjectStatus } from '../../../types/mcp.js'
+import { Neo4jProject } from '../../../services/neo4j/types.js'
 
 /**
  * Query parameters for retrieving and filtering projects
  */
 export interface ProjectListRequest {
   /** Query mode - 'all' for collection retrieval, 'details' for specific entity */
-  mode?: 'all' | 'details';
-  
+  mode?: 'all' | 'details'
+
   /** Target project identifier for detailed retrieval (required for mode='details') */
-  id?: string;
-  
+  id?: string
+
   /** Pagination control - page number (Default: 1) */
-  page?: number;
-  
+  page?: number
+
   /** Pagination control - results per page, max 100 (Default: 20) */
-  limit?: number;
-  
+  limit?: number
+
   /** Flag to include associated knowledge resources (Default: false) */
-  includeKnowledge?: boolean;
-  
+  includeKnowledge?: boolean
+
   /** Flag to include associated task entities (Default: false) */
-  includeTasks?: boolean;
-  
+  includeTasks?: boolean
+
   /** Filter selector for project classification/category */
-  taskType?: string;
-  
+  taskType?: string
+
   /** Filter selector for project lifecycle state */
-  status?: 'active' | 'pending' | 'completed' | 'archived' | ('active' | 'pending' | 'completed' | 'archived')[];
+  status?:
+    | 'active'
+    | 'pending'
+    | 'completed'
+    | 'archived'
+    | ('active' | 'pending' | 'completed' | 'archived')[]
 }
 
 /**
@@ -35,19 +40,19 @@ export interface ProjectListRequest {
  */
 export interface ProjectListResponse {
   /** Collection of projects matching search criteria */
-  projects: Project[];
-  
+  projects: Project[]
+
   /** Total record count matching criteria (pre-pagination) */
-  total: number;
-  
+  total: number
+
   /** Current pagination position */
-  page: number;
-  
+  page: number
+
   /** Pagination size setting */
-  limit: number;
-  
+  limit: number
+
   /** Total available pages for the current query */
-  totalPages: number;
+  totalPages: number
 }
 
 /**
@@ -55,40 +60,40 @@ export interface ProjectListResponse {
  */
 export interface Project {
   /** Unique project identifier */
-  id: string;
-  
-    /** Project title */
-    name: string;
-    
-    /** Project scope and objectives */
-    description: string;
-    
-    /** Current lifecycle state */
-    status: string;
-    
-    /** Project classification category */
-    taskType: string;
-    
-    /** Success criteria and definition of done */
-    completionRequirements: string;
-    
-    /** Expected deliverable specification */
-    outputFormat: string;
-    
-    /** Creation timestamp (ISO format) */
-    createdAt: string;
-    
-    /** Last modification timestamp (ISO format) */
-    updatedAt: string;
-    
-    /** Parsed reference materials with titles */
-    urls?: Array<{ title: string, url: string }>;
-  
+  id: string
+
+  /** Project title */
+  name: string
+
+  /** Project scope and objectives */
+  description: string
+
+  /** Current lifecycle state */
+  status: string
+
+  /** Project classification category */
+  taskType: string
+
+  /** Success criteria and definition of done */
+  completionRequirements: string
+
+  /** Expected deliverable specification */
+  outputFormat: string
+
+  /** Creation timestamp (ISO format) */
+  createdAt: string
+
+  /** Last modification timestamp (ISO format) */
+  updatedAt: string
+
+  /** Parsed reference materials with titles */
+  urls?: Array<{ title: string; url: string }>
+
   /** Associated knowledge resources (conditional inclusion) */
-  knowledge?: Knowledge[]; // Note: This structure is simplified for the tool response
-  
+  knowledge?: Knowledge[] // Note: This structure is simplified for the tool response
+
   /** Associated task entities (conditional inclusion) */
-  tasks?: Task[];
+  tasks?: Task[]
 }
 
 /**
@@ -96,28 +101,28 @@ export interface Project {
  */
 export interface Knowledge {
   /** Unique knowledge resource identifier */
-  id: string;
+  id: string
 
   /** ID of the parent project this knowledge belongs to */
-  projectId: string;
+  projectId: string
 
   /** Knowledge content */
-  text: string;
-  
+  text: string
+
   /** Taxonomic classification labels */
-  tags?: string[];
-  
+  tags?: string[]
+
   /** Primary knowledge domain/category */
-  domain: string;
-  
+  domain: string
+
   /** Resource creation timestamp (ISO format) */
-  createdAt: string;
+  createdAt: string
 
   /** Last modification timestamp (ISO format) */
-  updatedAt: string;
+  updatedAt: string
 
   /** Reference sources supporting this knowledge (URLs, DOIs, etc.) */
-  citations?: string[];
+  citations?: string[]
 }
 
 /**
@@ -125,41 +130,41 @@ export interface Knowledge {
  */
 export interface Task {
   /** Unique task identifier */
-  id: string;
+  id: string
 
   /** ID of the parent project this task belongs to */
-  projectId: string;
+  projectId: string
 
   /** Task description */
-  title: string;
-  
+  title: string
+
   /** Current workflow state */
-  status: string;
-  
+  status: string
+
   /** Task importance classification */
-  priority: string;
-  
+  priority: string
+
   /** Task creation timestamp (ISO format) */
-  createdAt: string;
+  createdAt: string
 
   /** Last modification timestamp (ISO format) */
-  updatedAt: string;
+  updatedAt: string
 
   /** ID of entity responsible for task completion */
-  assignedTo?: string;
+  assignedTo?: string
 
   /** Reference materials */
-  urls?: Array<{ title: string; url: string }>;
+  urls?: Array<{ title: string; url: string }>
 
   /** Specific, measurable criteria that indicate task completion */
-  completionRequirements: string;
+  completionRequirements: string
 
   /** Required format specification for task deliverables */
-  outputFormat: string;
+  outputFormat: string
 
   /** Classification of task purpose */
-  taskType: string;
+  taskType: string
 
   /** Organizational labels */
-  tags?: string[];
+  tags?: string[]
 }

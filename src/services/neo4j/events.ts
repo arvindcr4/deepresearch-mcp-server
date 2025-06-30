@@ -1,5 +1,5 @@
-import { EventEmitter } from 'events';
-import { logger } from '../../utils/logger.js';
+import { EventEmitter } from 'events'
+import { logger } from '../../utils/logger.js'
 
 /**
  * Event types for database operations
@@ -8,7 +8,7 @@ export enum DatabaseEventType {
   WRITE_OPERATION = 'write_operation',
   READ_OPERATION = 'read_operation',
   TRANSACTION_COMPLETE = 'transaction_complete',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 /**
@@ -16,23 +16,23 @@ export enum DatabaseEventType {
  * Uses the publish-subscribe pattern to decouple components
  */
 class DatabaseEventSystem {
-  private emitter: EventEmitter;
-  private static instance: DatabaseEventSystem;
+  private emitter: EventEmitter
+  private static instance: DatabaseEventSystem
 
   private constructor() {
-    this.emitter = new EventEmitter();
+    this.emitter = new EventEmitter()
     // Set a higher limit for listeners to avoid warnings
-    this.emitter.setMaxListeners(20);
-    
+    this.emitter.setMaxListeners(20)
+
     // Log all events in debug mode
     if (process.env.NODE_ENV === 'development') {
       this.emitter.on(DatabaseEventType.WRITE_OPERATION, (details) => {
-        logger.debug('Database write operation', { details });
-      });
-      
+        logger.debug('Database write operation', { details })
+      })
+
       this.emitter.on(DatabaseEventType.ERROR, (error) => {
-        logger.debug('Database event error', { error });
-      });
+        logger.debug('Database event error', { error })
+      })
     }
   }
 
@@ -41,9 +41,9 @@ class DatabaseEventSystem {
    */
   public static getInstance(): DatabaseEventSystem {
     if (!DatabaseEventSystem.instance) {
-      DatabaseEventSystem.instance = new DatabaseEventSystem();
+      DatabaseEventSystem.instance = new DatabaseEventSystem()
     }
-    return DatabaseEventSystem.instance;
+    return DatabaseEventSystem.instance
   }
 
   /**
@@ -51,8 +51,11 @@ class DatabaseEventSystem {
    * @param eventType Event type to subscribe to
    * @param listener Function to call when the event occurs
    */
-  public subscribe<T>(eventType: DatabaseEventType, listener: (data: T) => void): void {
-    this.emitter.on(eventType, listener);
+  public subscribe<T>(
+    eventType: DatabaseEventType,
+    listener: (data: T) => void
+  ): void {
+    this.emitter.on(eventType, listener)
   }
 
   /**
@@ -60,8 +63,11 @@ class DatabaseEventSystem {
    * @param eventType Event type to unsubscribe from
    * @param listener Function to remove
    */
-  public unsubscribe<T>(eventType: DatabaseEventType, listener: (data: T) => void): void {
-    this.emitter.off(eventType, listener);
+  public unsubscribe<T>(
+    eventType: DatabaseEventType,
+    listener: (data: T) => void
+  ): void {
+    this.emitter.off(eventType, listener)
   }
 
   /**
@@ -70,7 +76,7 @@ class DatabaseEventSystem {
    * @param data Event data
    */
   public publish<T>(eventType: DatabaseEventType, data: T): void {
-    this.emitter.emit(eventType, data);
+    this.emitter.emit(eventType, data)
   }
 
   /**
@@ -78,10 +84,13 @@ class DatabaseEventSystem {
    * @param eventType Event type to subscribe to
    * @param listener Function to call when the event occurs
    */
-  public subscribeOnce<T>(eventType: DatabaseEventType, listener: (data: T) => void): void {
-    this.emitter.once(eventType, listener);
+  public subscribeOnce<T>(
+    eventType: DatabaseEventType,
+    listener: (data: T) => void
+  ): void {
+    this.emitter.once(eventType, listener)
   }
 }
 
 // Export singleton instance
-export const databaseEvents = DatabaseEventSystem.getInstance();
+export const databaseEvents = DatabaseEventSystem.getInstance()

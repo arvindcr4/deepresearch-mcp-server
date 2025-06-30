@@ -162,6 +162,14 @@ NEO4J_PASSWORD=password2
 # Application Configuration
 LOG_LEVEL=info # debug, info, warn, error
 NODE_ENV=development # development, production
+
+# Research API Keys
+OPENAI_API_KEY=your_openai_api_key
+PERPLEXITY_API_KEY=your_perplexity_api_key
+XAI_GROK_API_KEY=your_grok_api_key
+FIRECRAWL_API_KEY=your_firecrawl_api_key
+AGENTSPACE_API_KEY=your_agentspace_api_key
+AGENTSPACE_BASE_URL=https://api.agentspace.dev
 ```
 
 ### MCP Client Settings
@@ -243,9 +251,14 @@ ATLAS provides a comprehensive suite of tools for project, task, and knowledge m
 
 ### Research Operations
 
-| Tool Name             | Description                                                                                                   | Key Arguments                                                                                                                                                                                                                                                                             |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `atlas_deep_research` | Initiates a structured deep research process by creating a hierarchical plan within the Atlas knowledge base. | `projectId` (required), `researchTopic` (required), `researchGoal` (required), `scopeDefinition` (optional), `subTopics` (required array with questions and search queries), `researchDomain` (optional), `initialTags` (optional), `planNodeId` (optional), `responseFormat` (optional). |
+| Tool Name                        | Description                                                                                                   | Key Arguments                                                                                                                                                                                                                                                                             |
+| :------------------------------- | :------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `atlas_deep_research`            | Initiates a structured deep research process by creating a hierarchical plan within the Atlas knowledge base. | `projectId` (required), `researchTopic` (required), `researchGoal` (required), `scopeDefinition` (optional), `subTopics` (required array with questions and search queries), `researchDomain` (optional), `initialTags` (optional), `planNodeId` (optional), `responseFormat` (optional). |
+| `openai-deep-research`           | Perform deep research using OpenAI with web browsing capabilities                                             | `query` (required), `options` (optional) with `maxResults`, `includePageContent`, `browsePage`                                                                                                                                                                                            |
+| `perplexity-sonar`               | Perform real-time web search using Perplexity Sonar                                                          | `query` (required), `options` (optional) with `maxResults`, `recency` (day/week/month/year)                                                                                                                                                                                               |
+| `grok3`                          | Perform research using Grok-3 with real-time web access                                                      | `query` (required), `options` (optional) with `maxResults`, `includePageContent`, `browsePage`                                                                                                                                                                                            |
+| `firecrawl-deep-research`        | Perform deep research using Firecrawl with web crawling and content extraction                               | `query` (required), `options` (optional) with `maxResults`, `browsePage`, `onlyMainContent`, `includeHtml`                                                                                                                                                                                |
+| `agentspace-google-research`     | Perform Google Deep Research via Agentspace with comprehensive analysis                                      | `query` (required), `options` (optional) with `maxResults`, `depth` (quick/standard/comprehensive), `includeAnalysis`, `language`, `region`, `browsePage`                                                                                                                                |
 
 ### Database Operations
 

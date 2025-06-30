@@ -1,0 +1,198 @@
+version: '3'
+
+vars:
+  BUILD_DIR: ./dist
+  SRC_DIR: ./src
+  NODE_BIN: node
+  TS_NODE: ts-node --esm
+
+tasks:
+  # Build Tasks
+  build:
+    desc: Build the TypeScript project and make executable
+    cmds:
+      - tsc
+      - "{{.NODE_BIN}} --loader ts-node/esm scripts/make-executable.ts {{.BUILD_DIR}}/index.js"
+    sources:
+      - "{{.SRC_DIR}}/**/*.ts"
+      - tsconfig.json
+    generates:
+      - "{{.BUILD_DIR}}/**/*.js"
+      - "{{.BUILD_DIR}}/**/*.d.ts"
+
+  clean:
+    desc: Clean build artifacts and temporary files
+    cmds:
+      - "{{.TS_NODE}} scripts/clean.ts"
+
+  rebuild:
+    desc: Clean and rebuild the project
+    deps: [clean]
+    cmds:
+      - task: build
+
+  # Development Tasks
+  dev:
+    desc: Start development mode with TypeScript watch
+    cmds:
+      - tsc -w
+
+  start:
+    desc: Start the built server
+    deps: [build]
+    cmds:
+      - "{{.NODE_BIN}} {{.BUILD_DIR}}/index.js"
+
+  # Docker Tasks
+  docker:up:
+    desc: Start Docker services (Neo4j database)
+    cmds:
+      - docker-compose up -d
+
+  docker:down:
+    desc: Stop Docker services
+    cmds:
+      - docker-compose down
+
+  docker:logs:
+    desc: Show Docker container logs
+    cmds:
+      - docker-compose logs -f
+
+  docker:restart:
+    desc: Restart Docker services
+    cmds:
+      - task: docker:down
+      - task: docker:up
+
+  # Database Tasks
+  db:backup:
+    desc: Backup the Neo4j database
+    cmds:
+      - "{{.NODE_BIN}} --loader ts-node/esm scripts/db-backup.ts"
+
+  db:import:
+    desc: Import data to Neo4j database
+    cmds:
+      - "{{.NODE_BIN}} --loader ts-node/esm scripts/db-import.ts"
+
+  db:setup:
+    desc: Setup database (start Docker and wait for Neo4j)
+    cmds:
+      - task: docker:up
+      - sleep 10  # Wait for Neo4j to start
+      - echo "Neo4j should be available at http://localhost:7474"
+
+  # Testing Tasks
+  test:
+    desc: Run tests
+    cmds:
+      - npm test
+    silent: true
+
+  test:watch:
+    desc: Run tests in watch mode
+    cmds:
+      - npm run test:watch
+    silent: true
+
+  # Utility Tasks
+  tree:
+    desc: Generate project tree structure
+    cmds:
+      - "{{.TS_NODE}} scripts/tree.ts"
+
+  lint:
+    desc: Run ESLint
+    cmds:
+      - npx eslint . --ext .ts,.js
+
+  lint:fix:
+    desc: Run ESLint with auto-fix
+    cmds:
+      - npx eslint . --ext .ts,.js --fix
+
+  format:
+    desc: Format code with Prettier
+    cmds:
+      - npx prettier --write "{{.SRC_DIR}}/**/*.{ts,js,json}"
+
+  # Package Management
+  install:
+    desc: Install dependencies
+    cmds:
+      - npm install
+
+  update:
+    desc: Update dependencies
+    cmds:
+      - npm update
+
+  # Development Environment
+  setup:
+    desc: Setup development environment
+    cmds:
+      - task: install
+      - task: db:setup
+      - task: build
+      - echo "Development environment ready!"
+
+  # Full Development Workflow
+  dev:full:
+    desc: Start full development environment
+    deps: [docker:up]
+    cmds:
+      - echo "Starting full development environment..."
+      - task: dev
+
+  # Production Tasks
+  prod:build:
+    desc: Build for production
+    cmds:
+      - NODE_ENV=production task build
+
+  prod:start:
+    desc: Start in production mode
+    deps: [prod:build]
+    cmds:
+      - NODE_ENV=production {{.NODE_BIN}} {{.BUILD_DIR}}/index.js
+
+  # Maintenance Tasks
+  backup:full:
+    desc: Create full backup (database + code)
+    cmds:
+      - task: db:backup
+      - task: tree
+      - echo "Full backup completed"
+
+  health:
+    desc: Check system health
+    cmds:
+      - echo "Checking Docker services..."
+      - docker-compose ps
+      - echo "Checking build status..."
+      - task: build --dry-run || echo "Build files missing or outdated"
+      - echo "Health check completed"
+
+  # Shortcuts
+  b:
+    desc: Shortcut for build
+    cmds:
+      - task: build
+
+  d:
+    desc: Shortcut for dev
+    cmds:
+      - task: dev
+
+  s:
+    desc: Shortcut for start
+    cmds:
+      - task: start
+
+  # Help
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+    silent: true

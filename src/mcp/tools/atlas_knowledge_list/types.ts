@@ -1,27 +1,27 @@
-import { KnowledgeFilterOptions } from '../../../services/neo4j/types.js';
-import { Neo4jKnowledge } from '../../../services/neo4j/types.js';
+import { KnowledgeFilterOptions } from '../../../services/neo4j/types.js'
+import { Neo4jKnowledge } from '../../../services/neo4j/types.js'
 
 /**
  * Query parameters for retrieving and filtering knowledge items
  */
 export interface KnowledgeListRequest {
   /** ID of the project to list knowledge items for (required) */
-  projectId: string;
-  
+  projectId: string
+
   /** Array of tags to filter by (items matching any tag will be included) */
-  tags?: string[];
-  
+  tags?: string[]
+
   /** Filter by knowledge domain/category */
-  domain?: string;
-  
+  domain?: string
+
   /** Text search query to filter results by content relevance */
-  search?: string;
-  
+  search?: string
+
   /** Page number for paginated results (Default: 1) */
-  page?: number;
-  
+  page?: number
+
   /** Number of results per page, maximum 100 (Default: 20) */
-  limit?: number;
+  limit?: number
 }
 
 /**
@@ -29,19 +29,19 @@ export interface KnowledgeListRequest {
  */
 export interface KnowledgeListResponse {
   /** Collection of knowledge items matching search criteria */
-  knowledge: KnowledgeItem[];
-  
+  knowledge: KnowledgeItem[]
+
   /** Total record count matching criteria (pre-pagination) */
-  total: number;
-  
+  total: number
+
   /** Current pagination position */
-  page: number;
-  
+  page: number
+
   /** Pagination size setting */
-  limit: number;
-  
+  limit: number
+
   /** Total available pages for the current query */
-  totalPages: number;
+  totalPages: number
 }
 
 /**
@@ -49,65 +49,65 @@ export interface KnowledgeListResponse {
  */
 export interface KnowledgeItem {
   /** Neo4j internal node identifier */
-  identity?: number;
-  
+  identity?: number
+
   /** Neo4j node type designations */
-  labels?: string[];
-  
+  labels?: string[]
+
   /** Core knowledge item attributes */
   properties?: {
     /** Unique knowledge item identifier */
-    id: string;
-    
+    id: string
+
     /** Project this knowledge belongs to */
-    projectId: string;
-    
+    projectId: string
+
     /** Knowledge content */
-    text: string;
-    
+    text: string
+
     /** Categorical labels for organization and filtering */
-    tags?: string[];
-    
+    tags?: string[]
+
     /** Primary knowledge area/discipline */
-    domain: string;
-    
+    domain: string
+
     /** Reference sources supporting this knowledge */
-    citations?: string[];
-    
+    citations?: string[]
+
     /** Creation timestamp (ISO format) */
-    createdAt: string;
-    
+    createdAt: string
+
     /** Last modification timestamp (ISO format) */
-    updatedAt: string;
-  };
-  
+    updatedAt: string
+  }
+
   /** Neo4j element identifier */
-  elementId?: string;
-  
+  elementId?: string
+
   /** Unique knowledge item identifier */
-  id: string;
-  
+  id: string
+
   /** Project this knowledge belongs to */
-  projectId: string;
-  
+  projectId: string
+
   /** Knowledge content */
-  text: string;
-  
+  text: string
+
   /** Categorical labels for organization and filtering */
-  tags?: string[];
-  
+  tags?: string[]
+
   /** Primary knowledge area/discipline */
-  domain: string;
-  
+  domain: string
+
   /** Reference sources supporting this knowledge */
-  citations?: string[];
-  
+  citations?: string[]
+
   /** Creation timestamp (ISO format) */
-  createdAt: string;
-  
+  createdAt: string
+
   /** Last modification timestamp (ISO format) */
-  updatedAt: string;
-  
+  updatedAt: string
+
   /** Associated project name (for context) */
-  projectName?: string;
+  projectName?: string
 }

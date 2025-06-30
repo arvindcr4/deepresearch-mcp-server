@@ -1,64 +1,114 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
-import { ProjectStatus, ResponseFormat, createResponseFormatEnum, createToolResponse } from "../../../types/mcp.js";
-import { createToolExample, createToolMetadata, registerTool } from "../../../types/tool.js";
-import { listProjects } from "./listProjects.js";
-import { ProjectListRequest } from './types.js';
-import { formatProjectListResponse } from './responseFormat.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { z } from 'zod'
+import {
+  ProjectStatus,
+  ResponseFormat,
+  createResponseFormatEnum,
+  createToolResponse,
+} from '../../../types/mcp.js'
+import {
+  createToolExample,
+  createToolMetadata,
+  registerTool,
+} from '../../../types/tool.js'
+import { listProjects } from './listProjects.js'
+import { ProjectListRequest } from './types.js'
+import { formatProjectListResponse } from './responseFormat.js'
 
 /**
  * Registers the atlas_project_list tool with the MCP server
- * 
+ *
  * @param server The MCP server instance
  */
 export function registerAtlasProjectListTool(server: McpServer): void {
   registerTool(
     server,
-    "atlas_project_list",
-    "Retrieves and filters project entities based on specified criteria with pagination support and relationship expansion capabilities",
+    'atlas_project_list',
+    'Retrieves and filters project entities based on specified criteria with pagination support and relationship expansion capabilities',
     {
-      mode: z.enum(['all', 'details']).optional().default('all')
-        .describe('Listing mode - "all" for paginated list of projects, "details" for comprehensive single project information'),
-      id: z.string().optional()
-        .describe('Project ID to retrieve complete details for, including relationships (required for mode="details")'),
-      page: z.number().min(1).optional().default(1)
-        .describe('Page number for paginated results when using mode="all" (Default: 1)'),
-      limit: z.number().min(1).max(100).optional().default(20)
-        .describe('Number of results per page, minimum 1, maximum 100 (Default: 20)'),
-      includeKnowledge: z.boolean().optional().default(false)
-        .describe('Boolean flag to include associated knowledge items with the project results (Default: false)'),
-      includeTasks: z.boolean().optional().default(false)
-        .describe('Boolean flag to include associated tasks in the response (Default: false)'),
-      taskType: z.string().optional()
+      mode: z
+        .enum(['all', 'details'])
+        .optional()
+        .default('all')
+        .describe(
+          'Listing mode - "all" for paginated list of projects, "details" for comprehensive single project information'
+        ),
+      id: z
+        .string()
+        .optional()
+        .describe(
+          'Project ID to retrieve complete details for, including relationships (required for mode="details")'
+        ),
+      page: z
+        .number()
+        .min(1)
+        .optional()
+        .default(1)
+        .describe(
+          'Page number for paginated results when using mode="all" (Default: 1)'
+        ),
+      limit: z
+        .number()
+        .min(1)
+        .max(100)
+        .optional()
+        .default(20)
+        .describe(
+          'Number of results per page, minimum 1, maximum 100 (Default: 20)'
+        ),
+      includeKnowledge: z
+        .boolean()
+        .optional()
+        .default(false)
+        .describe(
+          'Boolean flag to include associated knowledge items with the project results (Default: false)'
+        ),
+      includeTasks: z
+        .boolean()
+        .optional()
+        .default(false)
+        .describe(
+          'Boolean flag to include associated tasks in the response (Default: false)'
+        ),
+      taskType: z
+        .string()
+        .optional()
         .describe('Filter results by project classification or category type'),
-      status: z.union([
-        z.enum(['active', 'pending', 'completed', 'archived']),
-        z.array(z.enum(["active", "pending", "completed", "archived"])),
-      ]).optional()
-        .describe("Filter results by project status or multiple statuses"),
-      responseFormat: createResponseFormatEnum().optional().default(ResponseFormat.FORMATTED).describe(
-        "Desired response format: 'formatted' (default string) or 'json' (raw object)"
-      ),
+      status: z
+        .union([
+          z.enum(['active', 'pending', 'completed', 'archived']),
+          z.array(z.enum(['active', 'pending', 'completed', 'archived'])),
+        ])
+        .optional()
+        .describe('Filter results by project status or multiple statuses'),
+      responseFormat: createResponseFormatEnum()
+        .optional()
+        .default(ResponseFormat.FORMATTED)
+        .describe(
+          "Desired response format: 'formatted' (default string) or 'json' (raw object)"
+        ),
     },
     async (input, context) => {
       // Parse and process input (assuming validation happens implicitly via registerTool)
-      const validatedInput = input as unknown as ProjectListRequest & { responseFormat?: ResponseFormat };
-      const result = await listProjects(validatedInput);
+      const validatedInput = input as unknown as ProjectListRequest & {
+        responseFormat?: ResponseFormat
+      }
+      const result = await listProjects(validatedInput)
 
       // Conditionally format response
       if (validatedInput.responseFormat === ResponseFormat.JSON) {
-        return createToolResponse(JSON.stringify(result, null, 2));
+        return createToolResponse(JSON.stringify(result, null, 2))
       } else {
         // Return the result using the formatter for rich display
-        return formatProjectListResponse(result);
+        return formatProjectListResponse(result)
       }
     },
     createToolMetadata({
       examples: [
         createToolExample(
           {
-            mode: "all",
-            limit: 5
+            mode: 'all',
+            limit: 5,
           },
           `{
             "projects": [
@@ -98,14 +148,14 @@ export function registerAtlasProjectListTool(server: McpServer): void {
             "limit": 5,
             "totalPages": 1
           }`,
-          "Retrieve project portfolio with pagination controls"
+          'Retrieve project portfolio with pagination controls'
         ),
         createToolExample(
           {
-            mode: "details",
-            id: "proj_ms_migration",
+            mode: 'details',
+            id: 'proj_ms_migration',
             includeTasks: true,
-            includeKnowledge: true
+            includeKnowledge: true,
           },
           `{
             "projects": [
@@ -163,13 +213,13 @@ export function registerAtlasProjectListTool(server: McpServer): void {
             "limit": 20,
             "totalPages": 1
           }`,
-          "Retrieve comprehensive project details with associated tasks and technical knowledge"
+          'Retrieve comprehensive project details with associated tasks and technical knowledge'
         ),
         createToolExample(
           {
-            mode: "all",
-            status: ["active", "in-progress"],
-            taskType: "analysis"
+            mode: 'all',
+            status: ['active', 'in-progress'],
+            taskType: 'analysis',
           },
           `{
             "projects": [
@@ -209,50 +259,68 @@ export function registerAtlasProjectListTool(server: McpServer): void {
             "limit": 20,
             "totalPages": 1
           }`,
-          "Query projects by lifecycle state and classification type"
-        )
+          'Query projects by lifecycle state and classification type'
+        ),
       ],
-      requiredPermission: "project:read",
+      requiredPermission: 'project:read',
       entityType: 'project',
       returnSchema: z.object({
-        projects: z.array(z.object({
-          id: z.string().describe("Project ID"),
-          name: z.string().describe("Project name"),
-          description: z.string().describe("Project description"),
-          status: z.string().describe("Project status"),
-          urls: z.array(z.object({
-            title: z.string(),
-            url: z.string()
-          })).describe("Reference materials"),
-          completionRequirements: z.string().describe("Completion criteria"),
-          outputFormat: z.string().describe("Deliverable format"),
-          taskType: z.string().describe("Project classification"),
-          createdAt: z.string().describe("Creation timestamp"),
-          updatedAt: z.string().describe("Last update timestamp"),
-          knowledge: z.array(z.object({
-            id: z.string(),
-            text: z.string(),
-            tags: z.array(z.string()).optional(),
-            domain: z.string(),
-            createdAt: z.string()
-          })).optional().describe("Associated knowledge items (if requested)"),
-          tasks: z.array(z.object({
-            id: z.string(),
-            title: z.string(),
-            status: z.string(),
-            priority: z.string(),
-            createdAt: z.string()
-          })).optional().describe("Associated tasks (if requested)")
-        })),
-        total: z.number().describe("Total number of projects matching criteria"),
-        page: z.number().describe("Current page number"),
-        limit: z.number().describe("Number of items per page"),
-        totalPages: z.number().describe("Total number of pages")
+        projects: z.array(
+          z.object({
+            id: z.string().describe('Project ID'),
+            name: z.string().describe('Project name'),
+            description: z.string().describe('Project description'),
+            status: z.string().describe('Project status'),
+            urls: z
+              .array(
+                z.object({
+                  title: z.string(),
+                  url: z.string(),
+                })
+              )
+              .describe('Reference materials'),
+            completionRequirements: z.string().describe('Completion criteria'),
+            outputFormat: z.string().describe('Deliverable format'),
+            taskType: z.string().describe('Project classification'),
+            createdAt: z.string().describe('Creation timestamp'),
+            updatedAt: z.string().describe('Last update timestamp'),
+            knowledge: z
+              .array(
+                z.object({
+                  id: z.string(),
+                  text: z.string(),
+                  tags: z.array(z.string()).optional(),
+                  domain: z.string(),
+                  createdAt: z.string(),
+                })
+              )
+              .optional()
+              .describe('Associated knowledge items (if requested)'),
+            tasks: z
+              .array(
+                z.object({
+                  id: z.string(),
+                  title: z.string(),
+                  status: z.string(),
+                  priority: z.string(),
+                  createdAt: z.string(),
+                })
+              )
+              .optional()
+              .describe('Associated tasks (if requested)'),
+          })
+        ),
+        total: z
+          .number()
+          .describe('Total number of projects matching criteria'),
+        page: z.number().describe('Current page number'),
+        limit: z.number().describe('Number of items per page'),
+        totalPages: z.number().describe('Total number of pages'),
       }),
       rateLimit: {
         windowMs: 60 * 1000, // 1 minute
-        maxRequests: 30 // 30 requests per minute
-      }
+        maxRequests: 30, // 30 requests per minute
+      },
     })
-  );
+  )
 }

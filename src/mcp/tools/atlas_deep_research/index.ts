@@ -1,17 +1,21 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { BaseErrorCode, McpError } from "../../../types/errors.js";
-import { McpToolResponse, ResponseFormat } from "../../../types/mcp.js";
-import { createToolExample, createToolMetadata, registerTool } from "../../../types/tool.js";
-import { logger } from "../../../utils/logger.js";
-import { ToolContext } from "../../../utils/security.js"; // Assuming ToolContext might be used for permissions
-import { deepResearch } from "./deepResearch.js";
-import { formatDeepResearchResponse } from "./responseFormat.js";
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { BaseErrorCode, McpError } from '../../../types/errors.js'
+import { McpToolResponse, ResponseFormat } from '../../../types/mcp.js'
+import {
+  createToolExample,
+  createToolMetadata,
+  registerTool,
+} from '../../../types/tool.js'
+import { logger } from '../../../utils/logger.js'
+import { ToolContext } from '../../../utils/security.js' // Assuming ToolContext might be used for permissions
+import { deepResearch } from './deepResearch.js'
+import { formatDeepResearchResponse } from './responseFormat.js'
 import {
   AtlasDeepResearchInput,
   AtlasDeepResearchInputSchema,
   AtlasDeepResearchOutputSchema,
   AtlasDeepResearchSchemaShape,
-} from "./types.js";
+} from './types.js'
 
 /**
  * Main handler function for the `atlas_deep_research` MCP tool.
@@ -30,71 +34,71 @@ async function handler(
   params: unknown,
   context?: ToolContext
 ): Promise<McpToolResponse> {
-  const requestId = context?.requestContext?.requestId;
-  logger.debug("Received atlas_deep_research request", { params, requestId });
+  const requestId = context?.requestContext?.requestId
+  logger.debug('Received atlas_deep_research request', { params, requestId })
 
   // 1. Validate Input
-  const validationResult = AtlasDeepResearchInputSchema.safeParse(params);
+  const validationResult = AtlasDeepResearchInputSchema.safeParse(params)
   if (!validationResult.success) {
-    logger.error("Invalid input for atlas_deep_research", {
+    logger.error('Invalid input for atlas_deep_research', {
       errors: validationResult.error.errors,
       requestId,
-    });
+    })
     throw new McpError(
       BaseErrorCode.VALIDATION_ERROR,
-      "Invalid input parameters for atlas_deep_research",
+      'Invalid input parameters for atlas_deep_research',
       validationResult.error.format() // Provides detailed validation errors
-    );
+    )
   }
-  const input: AtlasDeepResearchInput = validationResult.data;
+  const input: AtlasDeepResearchInput = validationResult.data
 
   // Optional: Implement permission checks here if necessary
   // e.g., checkPermission(context, 'knowledge:create');
 
   try {
     // 2. Call Core Logic
-    logger.info(`Calling deepResearch core logic for request ID: ${requestId}`);
-    const result = await deepResearch(input);
+    logger.info(`Calling deepResearch core logic for request ID: ${requestId}`)
+    const result = await deepResearch(input)
 
     // 3. Format Response
-    logger.debug(`Formatting atlas_deep_research response for request ID: ${requestId}`);
+    logger.debug(
+      `Formatting atlas_deep_research response for request ID: ${requestId}`
+    )
     if (input.responseFormat === ResponseFormat.JSON) {
       // Return raw JSON output if requested
       return {
-        content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+        content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
         isError: !result.success, // Reflect the success status in the MCP response
-      };
+      }
     } else {
       // Use the dedicated formatter for 'formatted' output
-      return formatDeepResearchResponse(result, input);
+      return formatDeepResearchResponse(result, input)
     }
   } catch (error) {
-    logger.error("Error executing atlas_deep_research", {
+    logger.error('Error executing atlas_deep_research', {
       errorMessage: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
       requestId,
-    });
+    })
     // Re-throw errors that are already McpError instances
     if (error instanceof McpError) {
-      throw error;
+      throw error
     }
     // Wrap unexpected errors in a standard internal error response, including requestId if available
     const errorMessage = `Atlas deep research tool execution failed (Request ID: ${requestId ?? 'N/A'}): ${
       error instanceof Error ? error.message : String(error)
-    }`;
-    throw new McpError(
-      BaseErrorCode.INTERNAL_ERROR,
-      errorMessage
-    );
+    }`
+    throw new McpError(BaseErrorCode.INTERNAL_ERROR, errorMessage)
   }
 }
 
 // Define Tool Examples
 const examples = [
-  createToolExample( // Example 1: Structured technical research with comprehensive subtasks
+  createToolExample(
+    // Example 1: Structured technical research with comprehensive subtasks
     {
-      projectId: "proj_123abc",
-      researchTopic: "Quantum-Resistant Encryption Algorithms",
+      projectId: 'proj_123abc',
+      researchTopic: 'Quantum-Resistant Encryption Algorithms',
       researchGoal:
         'Systematically identify and critically evaluate leading PQC algorithms, analyzing their technical strengths/limitations and projected adoption timelines.',
       scopeDefinition:
@@ -115,7 +119,8 @@ const examples = [
           initialStatus: 'todo',
         },
         {
-          question: 'Which specific algorithms have achieved NIST PQC standardization status or finalist positions?',
+          question:
+            'Which specific algorithms have achieved NIST PQC standardization status or finalist positions?',
           initialSearchQueries: [
             'NIST PQC Round 3 finalists',
             'CRYSTALS-Kyber specification',
@@ -155,35 +160,41 @@ const examples = [
     `## Structured Deep Research Plan Initiated\n**Topic:** Quantum-Resistant Encryption Algorithms\n**Goal:** Systematically identify and critically evaluate leading PQC algorithms...\n**Plan Node ID:** plan_...\n**Sub-Topics Created:** 4 (with Operational Tasks)\n- **Question:** What are the fundamental taxonomic categories...?\n  - **Knowledge Node ID:** \`sub_...\`\n  - **Task ID:** \`task_...\`\n  - **Strategic Priority:** high\n  - **Workflow Status:** todo\n  - **Precision Search Queries:** ...\n... (additional focused sub-topics)`,
     'Initiate a comprehensive technical deep research plan on post-quantum cryptography, creating structured knowledge nodes with corresponding prioritized workflow tasks and precise search queries for systematic investigation.'
   ),
-  createToolExample( // Example 2: Strategic market analysis with focused inquiries
+  createToolExample(
+    // Example 2: Strategic market analysis with focused inquiries
     {
       projectId: 'proj_456def',
-      researchTopic: "Strategic Market Analysis for AI-Powered Code Review Tools",
-      researchGoal: 'Identify key market participants, quantify addressable market size, and identify emerging technology and adoption trends.',
+      researchTopic:
+        'Strategic Market Analysis for AI-Powered Code Review Tools',
+      researchGoal:
+        'Identify key market participants, quantify addressable market size, and identify emerging technology and adoption trends.',
       subTopics: [
-        { 
-          question: 'Who are the established and emerging competitors within the AI code review space?',
+        {
+          question:
+            'Who are the established and emerging competitors within the AI code review space?',
           initialSearchQueries: [
             'leading AI code review platforms',
             'GitHub Copilot market position',
-            'emerging static analysis AI tools'
-          ] 
+            'emerging static analysis AI tools',
+          ],
         },
-        { 
-          question: 'What is the current market valuation and projected compound annual growth rate (CAGR) for developer tools with AI integration?',
+        {
+          question:
+            'What is the current market valuation and projected compound annual growth rate (CAGR) for developer tools with AI integration?',
           initialSearchQueries: [
             'developer tools market size analysis 2025',
             'AI code review CAGR forecast',
-            'static analysis tools market growth'
-          ]
+            'static analysis tools market growth',
+          ],
         },
-        { 
-          question: 'What differentiated pricing models and monetization strategies are proving most effective in this market segment?',
+        {
+          question:
+            'What differentiated pricing models and monetization strategies are proving most effective in this market segment?',
           initialSearchQueries: [
             'AI code review pricing models comparison',
             'developer tools subscription economics',
-            'open-core vs SaaS code analysis tools'
-          ]
+            'open-core vs SaaS code analysis tools',
+          ],
         },
       ],
       createTasks: false, // Focus on knowledge capture without operational workflow items
@@ -215,8 +226,8 @@ const examples = [
       "tasksCreated": false
     }`,
     'Conduct targeted market intelligence gathering on AI code review tools ecosystem, focusing on competitive landscape analysis, market sizing, and business model evaluation, with precise search parameters for each inquiry area.'
-  )
-];
+  ),
+]
 
 /**
  * Registers the `atlas_deep_research` tool, including its metadata, schema,
@@ -239,6 +250,6 @@ export function registerAtlasDeepResearchTool(server: McpServer): void {
       // Optional: Define rate limits if needed
       // rateLimit: { windowMs: 60 * 1000, maxRequests: 10 }
     })
-  );
-  logger.info("Registered atlas_deep_research tool.");
+  )
+  logger.info('Registered atlas_deep_research tool.')
 }

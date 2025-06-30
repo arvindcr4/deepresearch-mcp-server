@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid'
 
 /**
  * Generates a unique, URL-friendly, 6-character alphanumeric ID.
@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
  * @returns A 6-character string ID.
  */
 export function generateShortId(): string {
-  return nanoid(6);
+  return nanoid(6)
 }
 
 /**
@@ -17,6 +17,9 @@ export function generateShortId(): string {
  * @param length - The desired length of the random part of the ID (default: 10).
  * @returns A prefixed ID string (e.g., 'prj_aBcDeFgHiJ').
  */
-export function generatePrefixedId(prefix: string, length: number = 10): string {
-  return `${prefix}_${nanoid(length)}`;
+export function generatePrefixedId(
+  prefix: string,
+  length: number = 10
+): string {
+  return `${prefix}_${nanoid(length)}`
 }

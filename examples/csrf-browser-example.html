@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Protection Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Deep Research with CSRF Protection</h1>
+    
+    <div>
+        <input type="text" id="query" placeholder="Enter your research query" style="width: 300px;">
+        <button onclick="doResearch()">Research</button>
+    </div>
+    
+    <div id="result" style="margin-top: 20px;"></div>
+    
+    <script>
+        let csrfToken = null;
+        
+        async function getCsrfToken() {
+            try {
+                const response = await axios.get('http://localhost:3000/csrf-token', {
+                    withCredentials: true
+                });
+                csrfToken = response.data.token;
+                console.log('Got CSRF token:', csrfToken);
+            } catch (error) {
+                console.error('Failed to get CSRF token:', error);
+            }
+        }
+        
+        async function doResearch() {
+            const query = document.getElementById('query').value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!query) {
+                alert('Please enter a query');
+                return;
+            }
+            
+            resultDiv.innerHTML = 'Researching...';
+            
+            try {
+                // Get CSRF token if needed
+                if (!csrfToken) {
+                    await getCsrfToken();
+                }
+                
+                // Make research request
+                const response = await axios.post('http://localhost:3000/deep-research', 
+                    {
+                        query: query,
+                        provider: 'perplexity'
+                    },
+                    {
+                        headers: {
+                            'X-CSRF-Token': csrfToken
+                        },
+                        withCredentials: true
+                    }
+                );
+                
+                resultDiv.innerHTML = '<h3>Results:</h3><pre>' + 
+                    JSON.stringify(response.data, null, 2) + '</pre>';
+                    
+            } catch (error) {
+                resultDiv.innerHTML = '<p style="color: red;">Error: ' + 
+                    (error.response?.data?.message || error.message) + '</p>';
+            }
+        }
+        
+        // Get CSRF token on page load
+        window.onload = getCsrfToken;
+    </script>
+</body>
+</html>

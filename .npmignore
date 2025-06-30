@@ -1,0 +1,73 @@
+# Source files (only include built dist)
+src/
+scripts/
+*.ts
+!*.d.ts
+
+# Development and build tools
+tsconfig.json
+eslint.config.js
+.prettierrc
+.repomixignore
+jest.config.js
+.nycrc.json
+
+# Tests
+__tests__/
+*.test.*
+*.spec.*
+test-*.ts
+test-*.js
+coverage/
+.nyc_output/
+
+# Documentation that's not essential
+docs/
+examples/
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Environment and config
+.env
+.env.*
+!.env.example
+
+# Logs and backups
+logs/
+backups/
+atlas-backups/
+*.log
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Version control
+.git/
+.gitignore
+.github/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts (keep dist)
+build/
