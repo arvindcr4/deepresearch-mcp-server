@@ -4,6 +4,20 @@
 !.env.example
 .venv/
 .venv3/
+venv/
+env/
+ENV/
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
 
 # Python
 __pycache__/
@@ -11,9 +25,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -28,27 +40,35 @@ wheels/
 *.egg
 MANIFEST
 .python-version
-venv/
-env/
-ENV/
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 .DS_Store
 
-# Project specific
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+jest_html_reporters.html
+
+# Logs
 logs/
+*.log
+
+# Project specific
 output/
 data/*
 !data/.gitkeep
+atlas-backups/
+backups/
 
 # LaTeX
 *.aux
 *.lof
-*.log
 *.lot
 *.fls
 *.out
@@ -69,14 +89,43 @@ data/*
 *.synctex.gz(busy)
 *.pdfsync
 latex.out/
-node_modules/
+
+# Memory profiling
+memory-profiles/
+*.heapsnapshot
+*.cpuprofile
 
 # Misc
 repomix/
 repomix-output.txt
 repomix-output.xml
 repomix-output.json
-logs/
 ideas/
-backups/
-atlas-backups/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.backup
+*.bak
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# TypeScript cache
+*.tscache
+
+# Package lock files (if using yarn)
+yarn.lock
+
+# Compiled binary addons
+build/Release
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity

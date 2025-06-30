@@ -1,0 +1,10 @@
+{
+  "*.{ts,tsx}": [
+    "eslint --fix --max-warnings 0",
+    "prettier --write",
+    "bash -c 'tsc --noEmit -p tsconfig.json'"
+  ],
+  "*.{js,jsx}": ["prettier --write"],
+  "*.{json,md,yml,yaml}": ["prettier --write"],
+  "package.json": ["prettier --write"]
+}

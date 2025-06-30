@@ -29,6 +29,8 @@
     "test:validation": "node --loader ts-node/esm src/test-validation.ts",
     "test:validation:verbose": "VERBOSE=1 node --loader ts-node/esm src/test-validation.ts",
     "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "lint:deps": "npx depcheck",
     "memory:profile": "node --expose-gc --loader ts-node/esm scripts/memory-profile.ts",
     "memory:snapshot": "node --expose-gc --loader ts-node/esm -e 'require(\"heapdump\").writeSnapshot(\"./memory-profiles/manual-\" + Date.now() + \".heapsnapshot\")'",
     "coverage:nyc": "nyc npm test",
@@ -39,7 +41,8 @@
     "release:github": "./scripts/create-release.sh",
     "docker:build": "docker build -t deepresearch-mcp-server:latest .",
     "docker:build:version": "docker build -t deepresearch-mcp-server:$(node -p \"require('./package.json').version\") .",
-    "prepublishOnly": "npm run build && npm test && npm run lint"
+    "prepublishOnly": "npm run build && npm test && npm run lint",
+    "prepare": "husky"
   },
   "keywords": [
     "mcp",
@@ -116,7 +119,9 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "heapdump": "^0.3.15",
+    "husky": "^9.1.7",
     "jest": "^30.0.3",
+    "lint-staged": "^16.1.2",
     "nock": "^14.0.5",
     "node-fetch": "^3.3.2",
     "nyc": "^17.1.0",
@@ -127,5 +132,17 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.0",
     "v8-profiler-next": "^1.10.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
