@@ -11,6 +11,10 @@
     "build": "tsc && node --loader ts-node/esm scripts/make-executable.ts dist/index.js",
     "start": "node dist/index.js",
     "dev": "tsc -w",
+    "test": "jest",
+    "test:smoke": "jest --testNamePattern='smoke test'",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
@@ -65,7 +69,10 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@types/node-schedule": "^2.1.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
