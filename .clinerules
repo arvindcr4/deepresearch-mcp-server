@@ -1,0 +1,107 @@
+# ATLAS MCP Server Developer Cheat Sheet
+
+This cheat sheet provides essential information for developers working on the `atlas-mcp-server` codebase.
+
+## 1. Project Overview
+
+**Purpose**: A Model Context Protocol (MCP) server for ATLAS, a Neo4j-powered task management system for LLM Agents. It implements a three-tier architecture (Projects, Tasks, Knowledge) to manage complex workflows.
+
+**Core Technologies**: TypeScript, Node.js, Neo4j, Winston (logging), Zod (validation), `@modelcontextprotocol/sdk`.
+
+## 2. Key Scripts (`package.json`)
+
+-   `npm run build`: Compile TypeScript to JavaScript (`dist/`).
+-   `npm run start`: Run the compiled server from `dist/`.
+-   `npm run dev`: Watch for changes and recompile TypeScript.
+-   `npm run docker:up`: Start Neo4j database using Docker Compose.
+-   `npm run docker:down`: Stop Neo4j database container.
+-   `npm run docker:logs`: View logs from the Neo4j container.
+-   `npm run db:backup`: Create a manual backup of the Neo4j database.
+-   `npm run db:import`: Import data into the Neo4j database from a backup.
+-   `npm run tree`: Generate a file tree representation (`docs/tree.md`).
+
+## 3. Configuration (`src/config/index.ts`)
+
+-   Configuration is loaded from environment variables (`.env` file).
+-   Key Variables:
+    -   `NEO4J_URI`: Neo4j connection string (default: `bolt://localhost:7687`).
+    -   `NEO4J_USER`: Neo4j username (default: `neo4j`).
+    -   `NEO4J_PASSWORD`: Neo4j password (default: `password`).
+    -   `LOG_LEVEL`: Logging level (`debug`, `info`, `warn`, `error`, default: `info`).
+    -   `BACKUP_FILE_DIR`: Directory for database backups (default: `./backups`).
+    -   `BACKUP_MAX_COUNT`: Maximum number of backups to keep (default: `10`).
+
+## 4. Logging (`src/utils/logger.ts`)
+
+-   Uses Winston for logging.
+-   Singleton logger instance available via `import { logger } from './utils/logger.js';`.
+-   Log Levels: `debug`, `info`, `warn`, `error`.
+-   Log files are stored in the `logs/` directory at the project root (`combined.log`, `error.log`, etc.).
+-   **Usage Example**:
+    ```typescript
+    import { logger } from './utils/logger.js';
+
+    logger.info('Processing request', { requestId: '123', userId: 'abc' });
+    try {
+      // ... some operation ...
+    } catch (error) {
+      logger.error('Operation failed', { error, inputData: { /* ... */ } });
+    }
+    ```
+
+## 5. Error Handling (`src/utils/errorHandler.ts` & `src/types/errors.ts`)
+
+-   Uses custom `McpError` class extending standard Error.
+-   Standardized error codes defined in `BaseErrorCode`.
+-   `handleOperationError`: Utility to catch generic errors within tool operations, log them, and wrap them in an `McpError` with `BaseErrorCode.INTERNAL_ERROR`.
+    ```typescript
+    import { handleOperationError } from './utils/errorHandler.js';
+    import { ToolContext } from './utils/security.js'; // Assuming ToolContext is defined here
+
+    async function someToolOperation(input: any, context: ToolContext) {
+      try {
+        // ... operation logic ...
+      } catch (error) {
+        handleOperationError(error, { context, operation: 'someToolOperation', input });
+      }
+    }
+    ```
+-   `handleDatabaseError`: Utility specifically for Neo4j errors, mapping common Neo4j error patterns to specific `McpError` instances.
+
+## 6. Services (`src/services/neo4j/`)
+
+-   Encapsulates interaction logic with the Neo4j database.
+-   Core Services:
+    -   `ProjectService`: Manages Project nodes and relationships.
+    -   `TaskService`: Manages Task nodes and relationships.
+    -   `KnowledgeService`: Manages Knowledge nodes and relationships.
+    -   `SearchService`: Provides unified search capabilities across entities.
+    -   `BackupRestoreService`: Handles database backup and restore operations.
+-   Services are typically used within MCP tool implementations.
+
+## 7. MCP Tools (`src/mcp/tools/`)
+
+-   Each tool resides in its own directory (e.g., `src/mcp/tools/atlas_project_create/`).
+-   Common File Structure:
+    -   `index.ts`: Exports the tool handler and schema.
+    -   `types.ts`: Defines input/output types (often using Zod schemas).
+    -   `responseFormat.ts`: Handles formatting the tool's response.
+    -   `[toolName].ts`: Contains the core logic for the tool (e.g., `createProject.ts`).
+-   Tools interact with Neo4j via the services layer.
+
+## 8. Database (Neo4j)
+
+-   Primary data store is Neo4j.
+-   Driver instance: `neo4jDriver` from `src/services/neo4j/driver.ts`.
+-   Key Management Functions (`src/services/neo4j/index.ts`):
+    -   `initializeNeo4jSchema()`: Ensures constraints and indexes exist. Run on startup.
+    -   `clearNeo4jDatabase()`: **Deletes all data**. Used by the `atlas_database_clean` tool.
+    -   `closeNeo4jConnection()`: Closes the driver connection. Called during graceful shutdown.
+
+## 9. Startup & Shutdown (`src/index.ts`)
+
+-   Entry point: `src/index.ts`.
+-   Initializes logger, creates the MCP server (`createMcpServer` from `src/mcp/server.ts`).
+-   Handles `SIGTERM` and `SIGINT` signals for graceful shutdown.
+-   Graceful shutdown closes the MCP server and the Neo4j connection.
+-   Catches `uncaughtException` and `unhandledRejection` to log errors and attempt shutdown.

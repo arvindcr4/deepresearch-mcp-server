@@ -1,0 +1,29 @@
+version: '3'
+services:
+  neo4j:
+    image: neo4j:5-community
+    container_name: neo4j-atlas-mcp-server
+    ports:
+      - "7474:7474"   # HTTP Browser
+      - "7687:7687"   # Bolt protocol
+    environment:
+      NEO4J_PLUGINS: '["apoc"]'  # Install APOC plugin
+      NEO4J_AUTH: neo4j/password2  # Change password for production use
+      NEO4J_dbms_usage__report_enabled: "false"
+      NEO4J_server_bolt_listen__address: ":7687"
+      NEO4J_server_bolt_advertised__address: ":7687"
+      NEO4J_server_memory_heap_initial__size: "512m"
+      NEO4J_server_memory_heap_max__size: "1G"
+      NEO4J_server_jvm_additional: "-XX:+HeapDumpOnOutOfMemoryError"
+      NEO4J_db_logs_query_enabled: "INFO"
+      NEO4J_db_logs_query_threshold: "0"
+      NEO4J_db_transaction_timeout: "5s"
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"  # Allow APOC procedures
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - neo4j_import:/var/lib/neo4j/import
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  neo4j_import:

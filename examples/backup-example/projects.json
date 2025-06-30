@@ -1,0 +1,14 @@
+[
+  {
+    "createdAt": "2025-03-26T18:39:53.529Z",
+    "taskType": "generation",
+    "urls": "[{\"title\":\"GitHub Repository\",\"url\":\"https://github.com/cyanheads/portfolio\"},{\"title\":\"Live Website\",\"url\":\"https://cyanheads.dev\"}]",
+    "completionRequirements": "The portfolio website will be considered complete when it includes all required sections (Home, About, Projects, Skills, Experience, Contact), is fully responsive, achieves a Lighthouse score of at least 90 across all categories, includes proper SEO optimization, and is deployed to production with CI/CD pipeline integration.",
+    "name": "Cyanheads Portfolio Website",
+    "description": "A modern, responsive portfolio website showcasing cyanheads' skills, projects, and professional experience as a software developer based in Seattle, WA. The site will feature a clean, intuitive design with sections for About, Projects, Skills, Experience, and Contact information. The portfolio will emphasize cyanheads' expertise in full-stack development, cloud technologies, and open source contributions.",
+    "id": "portfolio-main",
+    "outputFormat": "The final deliverable will be a fully functional website deployed to a production environment with source code hosted on GitHub. Documentation will include setup instructions, deployment procedures, and content management guidelines.",
+    "updatedAt": "2025-03-26T18:39:53.529Z",
+    "status": "active"
+  }
+]

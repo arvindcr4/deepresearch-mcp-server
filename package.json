@@ -1,0 +1,73 @@
+{
+  "name": "deepresearch-mcp-server",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol (MCP) server for deep research capabilities, providing advanced research tools and AI-powered analysis features.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "deepresearch-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node --loader ts-node/esm scripts/make-executable.ts dist/index.js",
+    "start": "node dist/index.js",
+    "dev": "tsc -w",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "rebuild": "ts-node --esm scripts/clean.ts && npm run build",
+    "tree": "ts-node --esm scripts/tree.ts",
+    "db:backup": "node --loader ts-node/esm scripts/db-backup.ts",
+    "db:import": "node --loader ts-node/esm scripts/db-import.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "neo4j",
+    "project-management",
+    "typescript",
+    "llm",
+    "agent",
+    "llm-agent",
+    "collaboration",
+    "task-management",
+    "graph-database",
+    "automation",
+    "task-automation",
+    "atlas",
+    "knowledge-management",
+    "dependency-tracking",
+    "unified-search",
+    "project-tracking",
+    "neo4j-integration",
+    "three-tier-architecture"
+  ],
+  "author": "@cyanheads",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.2",
+    "@types/node-cron": "^3.0.11",
+    "commander": "^13.1.0",
+    "cross-env": "^7.0.3",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fuzzysort": "^3.1.0",
+    "nanoid": "^5.1.5",
+    "neo4j-driver": "^5.28.1",
+    "node-cron": "^3.0.3",
+    "node-schedule": "^2.1.1",
+    "winston": "^3.17.0",
+    "zod": "^3.24.3"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bottleneck": "^2.19.5",
+    "dotenv-expand": "^5.1.0",
+    "@types/axios": "^0.14.0"
+    "@types/node-schedule": "^2.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

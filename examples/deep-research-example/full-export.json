@@ -1,0 +1,1525 @@
+{
+  "nodes": {
+    "Project": [
+      {
+        "createdAt": "2025-04-01T16:42:02.639Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "A detailed report summarizing findings, including specific grant details, application instructions, and relevant local context, saved to /Users/casey/Developer/github/atlas-mcp-agent/workspace. The Atlas database should contain structured knowledge about the grants found.",
+        "name": "Grant Research: Covington, KY Community Projects",
+        "description": "Research publicly available grants for solo-owned community projects (e.g., community gardens) in Covington, Kentucky. Focus on opportunities for individual owners from government, private foundations, and community organizations. Identify eligibility, deadlines, amounts, application processes, and relevant local programs.",
+        "id": "proj_a67039840514408386ec549c53668a8b",
+        "outputFormat": "Markdown report file and structured data in Atlas.",
+        "updatedAt": "2025-04-01T16:42:02.639Z",
+        "status": "active"
+      }
+    ],
+    "Note": [],
+    "Link": [],
+    "Member": [],
+    "Whiteboard": [],
+    "WhiteboardVersion": [],
+    "Task": [
+      {
+        "description": "Investigate the research question: \"Identify federal grants (e.g., USDA, EPA) for urban agriculture or community gardens applicable to individual applicants in Covington, KY.\"\n\nInitial Search Queries: USDA community garden grants individual Kentucky, EPA urban agriculture grants individual Covington KY, federal grants solo community projects Kentucky\n\nAssociated Knowledge Node: sub_FJyeAX7Xv_rj",
+        "title": "Research: Identify federal grants (e.g., USDA, EPA) for urban agriculture or community gardens applicable to individual applicants in Covington, KY.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:30.983Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_FJyeAX7Xv_rj.",
+        "id": "task_61009fc9c195400a90c7967f42430f24",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:30.983Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Identify Kentucky state-level grants for community improvement, agriculture, or gardens applicable to individual applicants.\"\n\nInitial Search Queries: Kentucky state grants community garden individual, Kentucky agriculture grants solo owner, Kentucky community improvement grants individual Covington\n\nAssociated Knowledge Node: sub_zuOT7eA_S5-L",
+        "title": "Research: Identify Kentucky state-level grants for community improvement, agriculture, or gardens applicable to individual applicants.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.082Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_zuOT7eA_S5-L.",
+        "id": "task_7c1e7e7f0dc5405d93dd3d3098629f4b",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.082Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Identify Covington city or Kenton County local grants/programs supporting community projects or gardens for individuals.\"\n\nInitial Search Queries: Covington Kentucky community project grants individual, Kenton County grants community garden solo owner, City of Covington funding community initiatives\n\nAssociated Knowledge Node: sub_Unzo84lG9lVN",
+        "title": "Research: Identify Covington city or Kenton County local grants/programs supporting community projects or gardens for individuals.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.122Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_Unzo84lG9lVN.",
+        "id": "task_61f9b270b9d14a23993cd8f7a2199613",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.122Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Identify private foundation grants (local Northern KY and national) supporting community gardens/urban agriculture for individuals.\"\n\nInitial Search Queries: Northern Kentucky foundation grants community garden, private foundation grants urban agriculture individual Kentucky, community project grants Covington foundations\n\nAssociated Knowledge Node: sub_-nU8tfvruGIt",
+        "title": "Research: Identify private foundation grants (local Northern KY and national) supporting community gardens/urban agriculture for individuals.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.187Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_-nU8tfvruGIt.",
+        "id": "task_24b0aa4e381848fd87c9943b9865a479",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.187Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Identify community organization grants or support programs in Covington/Northern KY for individual community projects.\"\n\nInitial Search Queries: Covington community organization grants garden, Northern Kentucky non-profit support community projects individual\n\nAssociated Knowledge Node: sub_P6pXWlPZQg-Q",
+        "title": "Research: Identify community organization grants or support programs in Covington/Northern KY for individual community projects.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.219Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_P6pXWlPZQg-Q.",
+        "id": "task_a4d1350e148d4841b2b1cbc1bcc88cc2",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.219Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Analyze eligibility criteria: Which identified grants specifically allow individual applicants versus requiring non-profit status?\"\n\nInitial Search Queries: grant eligibility individual vs non-profit community garden Kentucky\n\nAssociated Knowledge Node: sub_z7GlWJ9FIYKK",
+        "title": "Research: Analyze eligibility criteria: Which identified grants specifically allow individual applicants versus requiring non-profit status?",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.246Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_z7GlWJ9FIYKK.",
+        "id": "task_73bfa22a4cf64521a611790d9f50265a",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.246Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Detail application processes and deadlines for promising grants identified.\"\n\nInitial Search Queries: grant application process community garden Kentucky, upcoming grant deadlines urban agriculture Kentucky\n\nAssociated Knowledge Node: sub_OzI8ejLopmWs",
+        "title": "Research: Detail application processes and deadlines for promising grants identified.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.274Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_OzI8ejLopmWs.",
+        "id": "task_7a34c74e53154de694ba26959c6d946c",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.274Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Are there matching grant opportunities relevant to these projects?\"\n\nInitial Search Queries: matching grants community projects Kentucky, urban agriculture matching funds Covington\n\nAssociated Knowledge Node: sub_T56rdXxXy2z0",
+        "title": "Research: Are there matching grant opportunities relevant to these projects?",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.342Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_T56rdXxXy2z0.",
+        "id": "task_2ab2d76870ec49b3b2240a944157bdbe",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.342Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"What technical assistance programs exist to help individuals apply for these grants?\"\n\nInitial Search Queries: grant writing assistance Kentucky individual, community project grant support Covington\n\nAssociated Knowledge Node: sub_9EmfMIuNsdek",
+        "title": "Research: What technical assistance programs exist to help individuals apply for these grants?",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.366Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_9EmfMIuNsdek.",
+        "id": "task_bcce1500a1ec467ea108e2e8db32c3bf",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.366Z",
+        "status": "todo"
+      },
+      {
+        "description": "Investigate the research question: \"Find examples of past successfully funded community garden or similar projects led by individuals in the Covington area.\"\n\nInitial Search Queries: Covington community garden examples funded, successful solo community projects Northern Kentucky\n\nAssociated Knowledge Node: sub_AqPuE2nduCMF",
+        "title": "Research: Find examples of past successfully funded community garden or similar projects led by individuals in the Covington area.",
+        "priority": "medium",
+        "tags": [],
+        "createdAt": "2025-04-01T16:42:31.390Z",
+        "taskType": "research",
+        "urls": "[]",
+        "completionRequirements": "Gather relevant information and synthesize findings related to the research question. Update associated knowledge node sub_AqPuE2nduCMF.",
+        "id": "task_0083c99c688d41f8b7339416edd30792",
+        "outputFormat": "Update to knowledge node, potentially new linked knowledge items.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:42:31.390Z",
+        "status": "todo"
+      }
+    ],
+    "TaskType": [],
+    "Citation": [
+      {
+        "createdAt": "2025-04-01T16:54:51.871Z",
+        "id": "cite_de69481db35c4ab3ae0a2ae53b94acf7",
+        "source": "Perplexity Search Result 2025-04-01T16:54:20Z - Resource URLs"
+      },
+      {
+        "createdAt": "2025-04-01T16:43:56.035Z",
+        "id": "cite_7db5b170b73f4253858a9fdf10be2bb9",
+        "source": "Perplexity Search Result 2025-04-01T16:43:43Z - Federal Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:43:56.051Z",
+        "id": "cite_e34bb70b728f43518052462b3a8f11cc",
+        "source": "Perplexity Search Result 2025-04-01T16:43:43Z - Federal Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:45:03.389Z",
+        "id": "cite_45eaa26d93754c3b9fe93d65d78e7c5a",
+        "source": "Perplexity Search Result 2025-04-01T16:44:52Z - State Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:45:03.401Z",
+        "id": "cite_de58a4ec43184dbb959994ba858142dc",
+        "source": "Perplexity Search Result 2025-04-01T16:44:52Z - State Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:45:50.335Z",
+        "id": "cite_1204cef1ca3d4278871a15e7bc1b2ea5",
+        "source": "Perplexity Search Result 2025-04-01T16:45:37Z - Local Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:45:50.348Z",
+        "id": "cite_24ac058e1ea74a96b18430dd8fe707ed",
+        "source": "Perplexity Search Result 2025-04-01T16:45:37Z - Local Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:46:38.334Z",
+        "id": "cite_49ab00a2470949cca49163def21f77d8",
+        "source": "Perplexity Search Result 2025-04-01T16:46:23Z - Private Foundations"
+      },
+      {
+        "createdAt": "2025-04-01T16:46:38.344Z",
+        "id": "cite_1e7bea2920c14570896c74176137da5b",
+        "source": "Perplexity Search Result 2025-04-01T16:46:23Z - Private Foundations"
+      },
+      {
+        "createdAt": "2025-04-01T16:47:33.541Z",
+        "id": "cite_04b377e61a5e4051aa20fb099b3b49c0",
+        "source": "Perplexity Search Result 2025-04-01T16:47:21Z - Community Orgs"
+      },
+      {
+        "createdAt": "2025-04-01T16:47:33.575Z",
+        "id": "cite_223837212de849418a08f12e1c91982a",
+        "source": "Perplexity Search Result 2025-04-01T16:47:21Z - Community Orgs"
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.535Z",
+        "source": "Synthesis of know_1d2b459a...",
+        "id": "cite_c050e56e744847618568b7175b40881b"
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.541Z",
+        "id": "cite_59ba1a0636b246298514f4d789609e62",
+        "source": "know_ddae3b81f..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.544Z",
+        "id": "cite_372157bc223746ccaf41e9084419cc8b",
+        "source": "know_8f2cb3e98..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.546Z",
+        "id": "cite_8769a36031d843d1b15fbcad4bda6ca1",
+        "source": "know_21a95fc0..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.548Z",
+        "id": "cite_9f495ac779cb4132a8f8921623ed5b21",
+        "source": "know_194abba6..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.550Z",
+        "id": "cite_6f51eaf798454d91b0c319d49fad82b0",
+        "source": "know_490fcce4..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.554Z",
+        "id": "cite_3a3696e199af436089469e4acf596860",
+        "source": "know_46e966ad..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.555Z",
+        "id": "cite_814a72069fd94c4983e8a34e6c8580a1",
+        "source": "know_a62b36b9..."
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.557Z",
+        "id": "cite_503041ea38864beab2900ee0c5d0c54e",
+        "source": "know_33bca161..."
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.218Z",
+        "id": "cite_5f14802c1a1a4255b0d6baacf4cc2d30",
+        "source": "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.267Z",
+        "id": "cite_f4c31bed53b640218860f35b34637a87",
+        "source": "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.278Z",
+        "id": "cite_db7fc9abc29749ed83c95c53fc3f0aad",
+        "source": "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.289Z",
+        "id": "cite_a9b0916e159f4f8494989c9589ec58bd",
+        "source": "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+      },
+      {
+        "createdAt": "2025-04-01T16:49:58.145Z",
+        "id": "cite_b1a228bc45e1498b81bfb8302b147694",
+        "source": "Perplexity Search Result 2025-04-01T16:49:51Z - Matching Grants"
+      },
+      {
+        "createdAt": "2025-04-01T16:50:28.729Z",
+        "id": "cite_e924892d8d1c4ae99c0251d8561c8eab",
+        "source": "Perplexity Search Result 2025-04-01T16:50:22Z - Tech Assistance"
+      },
+      {
+        "createdAt": "2025-04-01T16:51:01.190Z",
+        "id": "cite_bffb16187e354cf5b63dd3daa1669c82",
+        "source": "Perplexity Search Result 2025-04-01T16:50:52Z - Project Examples"
+      },
+      {
+        "createdAt": "2025-04-01T16:53:25.139Z",
+        "id": "cite_a27fa75652d042ffbe8be2437d0748bf",
+        "source": "Perplexity Search Result 2025-04-01T16:53:11Z - CfGN URL"
+      },
+      {
+        "createdAt": "2025-04-01T16:53:51.500Z",
+        "id": "cite_667e85408cdf43d0954773364f9d2cc0",
+        "source": "Perplexity Search Result 2025-04-01T16:53:42Z - KYSU Grant URL"
+      }
+    ],
+    "Knowledge": [
+      {
+        "createdAt": "2025-04-01T16:42:30.876Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Plan: Grants for Solo-Owned Community Projects in Covington, KY\n\nGoal: Identify and detail funding opportunities (eligibility, deadlines, amounts, application process) for individuals running community gardens or similar projects in Covington, KY.\n\nScope: Focus on grants accessible to individual owners, not just non-profits or formal organizations. Include government (federal, state, local), private foundations, and community organizations. Prioritize opportunities specific to Covington or Northern Kentucky.",
+        "id": "plan_zfSjWzFUo_cs",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-plan",
+          "research-root",
+          "status:active",
+          "topic:grants-for-solo-owned-community-projects-in-coving",
+          "#grant",
+          "#research",
+          "#covington",
+          "#kentucky",
+          "#community-garden",
+          "#individual-applicant"
+        ],
+        "updatedAt": "2025-04-01T16:42:30.876Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:30.960Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Identify federal grants (e.g., USDA, EPA) for urban agriculture or community gardens applicable to individual applicants in Covington, KY.\n\nInitial Search Queries: USDA community garden grants individual Kentucky, EPA urban agriculture grants individual Covington KY, federal grants solo community projects Kentucky",
+        "id": "sub_FJyeAX7Xv_rj",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:usda-community-garden-grants-individual-kentucky",
+          "search-query:epa-urban-agriculture-grants-individual-covington-",
+          "search-query:federal-grants-solo-community-projects-kentucky"
+        ],
+        "updatedAt": "2025-04-01T16:42:30.960Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.059Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Identify Kentucky state-level grants for community improvement, agriculture, or gardens applicable to individual applicants.\n\nInitial Search Queries: Kentucky state grants community garden individual, Kentucky agriculture grants solo owner, Kentucky community improvement grants individual Covington",
+        "id": "sub_zuOT7eA_S5-L",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:kentucky-state-grants-community-garden-individual",
+          "search-query:kentucky-agriculture-grants-solo-owner",
+          "search-query:kentucky-community-improvement-grants-individual-c"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.059Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.108Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Identify Covington city or Kenton County local grants/programs supporting community projects or gardens for individuals.\n\nInitial Search Queries: Covington Kentucky community project grants individual, Kenton County grants community garden solo owner, City of Covington funding community initiatives",
+        "id": "sub_Unzo84lG9lVN",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:covington-kentucky-community-project-grants-indivi",
+          "search-query:kenton-county-grants-community-garden-solo-owner",
+          "search-query:city-of-covington-funding-community-initiatives"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.108Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.146Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Identify private foundation grants (local Northern KY and national) supporting community gardens/urban agriculture for individuals.\n\nInitial Search Queries: Northern Kentucky foundation grants community garden, private foundation grants urban agriculture individual Kentucky, community project grants Covington foundations",
+        "id": "sub_-nU8tfvruGIt",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:northern-kentucky-foundation-grants-community-gard",
+          "search-query:private-foundation-grants-urban-agriculture-indivi",
+          "search-query:community-project-grants-covington-foundations"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.146Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.205Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Identify community organization grants or support programs in Covington/Northern KY for individual community projects.\n\nInitial Search Queries: Covington community organization grants garden, Northern Kentucky non-profit support community projects individual",
+        "id": "sub_P6pXWlPZQg-Q",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:covington-community-organization-grants-garden",
+          "search-query:northern-kentucky-non-profit-support-community-pro"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.205Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.233Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Analyze eligibility criteria: Which identified grants specifically allow individual applicants versus requiring non-profit status?\n\nInitial Search Queries: grant eligibility individual vs non-profit community garden Kentucky",
+        "id": "sub_z7GlWJ9FIYKK",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:grant-eligibility-individual-vs-non-profit-communi"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.233Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.260Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Detail application processes and deadlines for promising grants identified.\n\nInitial Search Queries: grant application process community garden Kentucky, upcoming grant deadlines urban agriculture Kentucky",
+        "id": "sub_OzI8ejLopmWs",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:grant-application-process-community-garden-kentuck",
+          "search-query:upcoming-grant-deadlines-urban-agriculture-kentuck"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.260Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.329Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Are there matching grant opportunities relevant to these projects?\n\nInitial Search Queries: matching grants community projects Kentucky, urban agriculture matching funds Covington",
+        "id": "sub_T56rdXxXy2z0",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:matching-grants-community-projects-kentucky",
+          "search-query:urban-agriculture-matching-funds-covington"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.329Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.353Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: What technical assistance programs exist to help individuals apply for these grants?\n\nInitial Search Queries: grant writing assistance Kentucky individual, community project grant support Covington",
+        "id": "sub_9EmfMIuNsdek",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:grant-writing-assistance-kentucky-individual",
+          "search-query:community-project-grant-support-covington"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.353Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:42:31.379Z",
+        "citations": [],
+        "domain": "community development",
+        "text": "Research Question: Find examples of past successfully funded community garden or similar projects led by individuals in the Covington area.\n\nInitial Search Queries: Covington community garden examples funded, successful solo community projects Northern Kentucky",
+        "id": "sub_AqPuE2nduCMF",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "tags": [
+          "research-subtopic",
+          "status:pending",
+          "search-query:covington-community-garden-examples-funded",
+          "search-query:successful-solo-community-projects-northern-kentuc"
+        ],
+        "updatedAt": "2025-04-01T16:42:31.379Z"
+      },
+      {
+        "createdAt": "2025-04-01T16:43:55.934Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:43:43Z - Federal Grants"
+        ],
+        "domain": "community development",
+        "id": "know_33bca161d349445e8f818a96ce516f7d",
+        "text": "Federal Grant Search Summary (Individuals): Initial research suggests direct federal grants (e.g., USDA Urban Agriculture and Innovation Production (UAIP), People's Garden Initiative) for community gardens/urban agriculture are primarily targeted at organizations (nonprofits, government entities, tribes), not individual applicants. Individuals may need to partner with eligible organizations.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:43:55.934Z",
+        "tags": [
+          "#federal",
+          "#grant",
+          "#usda",
+          "#epa",
+          "#eligibility",
+          "#individual-applicant",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:43:56.045Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:43:43Z - Federal Grants"
+        ],
+        "domain": "community development",
+        "id": "know_a62b36b9eb82453aadba7a7bbf64d981",
+        "text": "Potential Alternatives (Individuals, Covington): \n1. **Covington Neighborhood Grant Program:** Offers $1,455–$5,000 for projects including gardens. Requires application through a recognized neighborhood association or collaborative group; individuals cannot apply directly but must partner. Contact Center for Great Neighborhoods.\n2. **USDA Farm Service Agency (FSA) Loans:** Offers Direct Operating Loans and Microloans (up to $50k) for small-scale urban farms/gardens. These are *loans* (require repayment), not grants, but are available to individual applicants for startup costs.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:43:56.045Z",
+        "tags": [
+          "#local",
+          "#covington",
+          "#grant",
+          "#loan",
+          "#usda-fsa",
+          "#neighborhood-program",
+          "#individual-applicant",
+          "#alternative",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:45:03.359Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:44:52Z - State Grants"
+        ],
+        "domain": "community development",
+        "id": "know_46e966ad7cc34674b935a742157b4fab",
+        "text": "Kentucky State-Level Grant Summary (Individuals): \n1. **Covington Neighborhood Grant Program:** (Administered locally but relevant) Up to $5,000 for neighborhood projects including gardens. Requires application by resident-led groups (informal groups of neighbors qualify), not individuals acting alone. Collaboration is key.\n2. **Small-Scale Farm Grant Program (Kentucky State University):** Up to $5,000 per household for improving small farm operations (potentially including urban farms). Targets small-scale farmers; individual farmers may be eligible.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:45:03.359Z",
+        "tags": [
+          "#kentucky",
+          "#state-level",
+          "#local",
+          "#covington",
+          "#grant",
+          "#neighborhood-program",
+          "#small-farm",
+          "#eligibility",
+          "#individual-applicant",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:45:03.395Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:44:52Z - State Grants"
+        ],
+        "domain": "community development",
+        "id": "know_490fcce48dfa4224af70f8633cb382e5",
+        "text": "Other Potential State/Related Grants (Check Eligibility):\n- **USDA Urban Agriculture Grants / Value-Added Producer Grants (VAPG):** Mentioned in state-level searches, but federal programs often require organizational status or specific agricultural producer criteria. Individual eligibility needs careful verification.\n- **Urban and Community Forestry Assistance Grant (Kentucky):** Focuses on trees/orchards and requires partnership with non-profits or local government.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:45:03.395Z",
+        "tags": [
+          "#kentucky",
+          "#state-level",
+          "#grant",
+          "#usda",
+          "#vapg",
+          "#forestry",
+          "#eligibility",
+          "#potential",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:45:50.223Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:45:37Z - Local Grants"
+        ],
+        "domain": "community development",
+        "id": "know_194abba6995f4642a48d3f3c565f652e",
+        "text": "Covington/Kenton County Local Grant Summary (Individuals):\n1. **Covington Neighborhood Grant Program:** Up to $5,000 for neighborhood projects (incl. gardens). Requires application by resident-led groups (informal neighbor groups qualify). Individuals must collaborate. Contact The Center for Great Neighborhoods (859-547-5550). 2024 deadline passed (Sept 30); implementation by Apr 7, 2025.\n2. **USDA Repair Loans/Grants:** Federal program, locally relevant. Loans (up to $40k) and Grants (up to $10k for elderly 62+) for low-income homeowners for repairs/hazard removal. Individual applicants eligible. Not directly for gardens, but could fund related repairs.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:45:50.223Z",
+        "tags": [
+          "#local",
+          "#covington",
+          "#kenton-county",
+          "#grant",
+          "#loan",
+          "#neighborhood-program",
+          "#usda-repair",
+          "#eligibility",
+          "#individual-applicant",
+          "#group-required",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:45:50.341Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:45:37Z - Local Grants"
+        ],
+        "domain": "community development",
+        "id": "know_21a95fc02a92468b9b66314a0c4542b8",
+        "text": "Historical/Other Local Programs (Individuals):\n- **Nano Grants (Center for Great Neighborhoods):** Previously offered small grants ($500-$2k) directly to individuals for creative community projects. Currently inactive, but monitor for potential return.\n- **Other Funds (HOME Consortium, Kenton County Redevelopment):** Primarily target non-profits, social service agencies, or require city partnerships, less suitable for direct individual application.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:45:50.341Z",
+        "tags": [
+          "#local",
+          "#covington",
+          "#kenton-county",
+          "#grant",
+          "#historical",
+          "#nano-grant",
+          "#individual-applicant",
+          "#organizational",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:46:38.327Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:46:23Z - Private Foundations"
+        ],
+        "domain": "community development",
+        "id": "know_8f2cb3e9827d4c4f8b7aad05929d39c7",
+        "text": "Private Foundation Grant Summary (Direct Individual):\n1. **Urban Gardeners Grants (via GrantWatch):** Up to $5,000 potentially available to individuals (and orgs) for for-profit gardening ventures. Location/eligibility details need verification.\n2. **Kentucky Agricultural Producer Grants (via GrantWatch):** Up to $5,000 for specific producer categories (BIPOC, female, limited-resource, small-acreage), potentially including urban growers. Prioritizes food-insecure areas.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:46:38.327Z",
+        "tags": [
+          "#private-foundation",
+          "#grant",
+          "#individual-applicant",
+          "#grantwatch",
+          "#urban-gardeners",
+          "#ag-producer",
+          "#kentucky",
+          "#potential",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:46:38.338Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:46:23Z - Private Foundations"
+        ],
+        "domain": "community development",
+        "id": "know_ddae3b81f4cc49a0af1722ee1c0fa8b3",
+        "text": "Private Foundation Grant Summary (Indirect/Partnership):\n- **Covington Neighborhood Grant Program:** Requires group application, but individuals can partner with neighbors or fiscal sponsors (e.g., Center for Great Neighborhoods).\n- **Greater Cincinnati Foundation (Northern KY Fund):** Funds non-profits; individuals may collaborate with funded orgs.\n- **USDA Urban Ag Grants / APGA Grants:** Primarily target orgs/schools, but individuals might access via coop agreements or partnerships.\n- **General Limitation:** Most private foundations require non-profit status or business registration. Fiscal sponsorship is often necessary for individuals.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:46:38.338Z",
+        "tags": [
+          "#private-foundation",
+          "#grant",
+          "#partnership",
+          "#fiscal-sponsor",
+          "#group-required",
+          "#covington",
+          "#gcf",
+          "#usda",
+          "#apga",
+          "#limitation",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:47:33.497Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:47:21Z - Community Orgs"
+        ],
+        "domain": "community development",
+        "id": "know_1d2b459a330e47efb3190522ada1b38b",
+        "text": "Community Org Grants/Support (Direct/Small Group Focus):\n1. **Covington Neighborhood Grant Program:** Up to $5k for neighborhood projects. Individuals can apply by forming informal groups or collaborating with The Center for Great Neighborhoods (assists applicants).\n2. **Pure Farmland Grants:** Provided $1k+ grants to Covington community gardens (e.g., Redden Gardens) in the past. Check for current availability/recurrence.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:47:33.497Z",
+        "tags": [
+          "#community-org",
+          "#grant",
+          "#support",
+          "#covington",
+          "#neighborhood-program",
+          "#pure-farmland",
+          "#individual-applicant",
+          "#group-required",
+          "#potential",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:47:33.560Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:47:21Z - Community Orgs"
+        ],
+        "domain": "community development",
+        "id": "know_214bee7fd302417992ab7f239db8973b",
+        "text": "Community Org Grants/Support (Partnership Required):\n- **USDA Community Facilities Grants:** Funds facilities like gardens in rural areas; requires partnership with public body/nonprofit.\n- **Horizon Community Funds (NKY):** Funds nonprofits; individuals need to partner.\n- **National Public Garden Grants (Stanley Smith, Therapeutic, Whole Kids):** Generally require org/school status.\n- **KY School Garden Grants:** Require school/nonprofit partnership.\n- **Local USDA/State Programs (CDBG):** Managed by Covington; likely require city/org partnership.\n- **Key Recommendation:** Partnering with The Center for Great Neighborhoods is a strong strategy for accessing many local funds.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:47:33.560Z",
+        "tags": [
+          "#community-org",
+          "#grant",
+          "#support",
+          "#partnership",
+          "#usda-cf",
+          "#horizon-funds",
+          "#national-grants",
+          "#school-grants",
+          "#cdbg",
+          "#covington",
+          "#center-for-great-neighborhoods",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:48:09.432Z",
+        "citations": [
+          "Synthesis of know_1d2b459a...",
+          "know_ddae3b81f...",
+          "know_8f2cb3e98...",
+          "know_21a95fc0...",
+          "know_194abba6...",
+          "know_490fcce4...",
+          "know_46e966ad...",
+          "know_a62b36b9...",
+          "know_33bca161..."
+        ],
+        "domain": "community development",
+        "id": "know_797788cfb54d4400bedd04dfc472190d",
+        "text": "Eligibility Analysis Summary:\n\n*   **Direct Individual Grants:** Limited. Options include USDA Repair Grants (homeowners), KY Small-Scale Farm Grants (farmers), potential GrantWatch listings (verification needed), and USDA FSA Loans (not grants). Historical Nano Grants were direct but are inactive.\n*   **Group/Partnership Required:** Most common route. Covington Neighborhood Grant requires group application (informal groups ok). Many Federal/State/Foundation grants (USDA Urban Ag, Community Facilities, Horizon Funds, National Garden Grants, etc.) require partnership with a non-profit/school/govt entity. The Center for Great Neighborhoods is a key local partner.\n*   **Primarily Organizational:** Many grants explicitly exclude individuals, requiring non-profit/govt/tribal status (e.g., USDA UAIP, People's Garden).\n\n**Conclusion:** Solo individuals likely need to form a group or partner with an organization (esp. Center for Great Neighborhoods) to access most relevant grants.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:48:09.432Z",
+        "tags": [
+          "#eligibility",
+          "#analysis",
+          "#summary",
+          "#individual-applicant",
+          "#group-required",
+          "#partnership",
+          "#organizational",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.128Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+        ],
+        "domain": "community development",
+        "id": "know_8a77ae38d8734a3ebac5a6b898e6c621",
+        "text": "**Covington Neighborhood Grant Program (Application/Deadline):**\n*   **Deadline:** FY25 cycle closed Sept 30, 2024. Future cycles TBA. Check with Center for Great Neighborhoods (CfGN).\n*   **Process:** 1) Develop idea with neighbors. 2) Meet with CfGN for review. 3) Submit detailed application/budget. 4) Committee review & City approval.\n*   **Notes:** For resident-led groups (formal/informal). Up to $5k. CfGN assists applicants.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:49:17.128Z",
+        "tags": [
+          "#application-process",
+          "#deadline",
+          "#covington",
+          "#neighborhood-program",
+          "#center-for-great-neighborhoods",
+          "#group-required",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.261Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+        ],
+        "domain": "community development",
+        "id": "know_10e0f081ab2e4544a0ae094d767620a7",
+        "text": "**GrantWatch Listings (Application/Deadline):**\n*   **Urban Gardeners Grant:** Up to $5k for individuals/orgs (for-profit focus). Deadline recurring/unspecified. Check GrantWatch.com for current status and application details.\n*   **KY Agricultural Producer Grant:** Specific GrantWatch listing not found in search. Check GrantWatch directly using relevant keywords. May overlap with KYSU Small-Scale Farm Grant.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:49:17.261Z",
+        "tags": [
+          "#application-process",
+          "#deadline",
+          "#grantwatch",
+          "#urban-gardeners",
+          "#ag-producer",
+          "#individual-applicant",
+          "#potential",
+          "#verification-needed",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.272Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+        ],
+        "domain": "community development",
+        "id": "know_3005a083ac4a40bf84a78956904137d0",
+        "text": "**Kentucky State University Small-Scale Farm Grant (Application/Deadline):**\n*   **Deadline:** Previous cycle closed Dec 1, 2024. Future cycles TBA. Check KYSU Extension.\n*   **Process:** Submit detailed farm improvement plan & budget via email/mail.\n*   **Notes:** For small-scale farms (<$250k sales). Up to $5k. Priority areas apply.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:49:17.272Z",
+        "tags": [
+          "#application-process",
+          "#deadline",
+          "#kysu",
+          "#small-farm",
+          "#kentucky",
+          "#individual-applicant",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:49:17.282Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:48:51Z - App Process"
+        ],
+        "domain": "community development",
+        "id": "know_ed47873488884b80959987fbeceba8fa",
+        "text": "**Pure Farmland Grant / Alternatives (Application/Deadline):**\n*   **Pure Farmland:** Specific grant not found in search results. May be inactive or misnamed.\n*   **Alternative - GroMoreGood Grassroots Grant (Scotts):** Deadline Jan 30, 2025. Up to $1.5k for youth gardens.\n*   **Alternative - Columbus Foundation Grants:** Deadline Mar 21, 2025. Up to $1.5k for Central OH gardens (check geographic eligibility for Covington).",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:49:17.282Z",
+        "tags": [
+          "#application-process",
+          "#deadline",
+          "#pure-farmland",
+          "#alternative",
+          "#gromoregood",
+          "#columbus-foundation",
+          "#verification-needed",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:49:58.130Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:49:51Z - Matching Grants"
+        ],
+        "domain": "community development",
+        "id": "know_7ad86d22fc07491d93142707b31c2325",
+        "text": "Matching Grant Opportunities Summary:\n\n*   **Direct Individual Access:** Unlikely for most matching grants.\n*   **Covington Neighborhood Grant Program:** Local program ($1.4k-$5k) accessible to resident-led groups (formal/informal). Not explicitly a 'matching' grant, but supports similar projects.\n*   **Kentucky G.R.A.N.T. Program:** State matching funds for federal grants. Requires county, city, or 501(c)(3) applicant status. Individuals/small groups need to partner.\n*   **USDA People's Gardens Grant:** National program requiring partnership with nonprofit/local govt/school.\n*   **Other Programs (e.g., Recycling/Composting Grants):** May require a local match (e.g., 25%) and partnership.\n*   **Key Strategy:** Partnering with eligible entities (esp. The Center for Great Neighborhoods in Covington) is the primary way for individuals/small groups to access matching funds or leverage larger grant programs.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:49:58.130Z",
+        "tags": [
+          "#matching-grant",
+          "#kentucky",
+          "#covington",
+          "#partnership",
+          "#group-required",
+          "#eligibility",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:50:28.687Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:50:22Z - Tech Assistance"
+        ],
+        "domain": "community development",
+        "id": "know_114ca14f324240969e810ae1157bdc08",
+        "text": "Technical Assistance & Grant Writing Support Summary:\n\n*   **Kentucky Nonprofit Network (KNN):** Offers grant writing workshops (Grants 101, Grants 201) in Covington.\n*   **Grant Ready Kentucky (GRKY):** Statewide program providing direct assistance for federal grants and educational resources.\n*   **The Center for Great Neighborhoods (Covington):** Assists applicants for the Covington Neighborhood Grant Program.\n*   **Kentucky SBDC (Covington):** Free coaching for nonprofits/entrepreneurs, including planning and funding guidance.\n*   **Appalachian Community Fund:** TA grants for training (fundraising, etc.) in Appalachian KY counties.\n*   **USDA Rural Development:** Offers grants (SDGG, RCDI) focused on cooperative development and capacity building.\n*   **KY Farm to School Network:** TA for school gardens (planning, maintenance, curriculum).",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:50:28.687Z",
+        "tags": [
+          "#technical-assistance",
+          "#grant-writing",
+          "#support",
+          "#kentucky",
+          "#covington",
+          "#knn",
+          "#grky",
+          "#cfgn",
+          "#sbdc",
+          "#acf",
+          "#usda-rd",
+          "#farm-to-school",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:51:01.175Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:50:52Z - Project Examples"
+        ],
+        "domain": "community development",
+        "id": "know_bc417d3ab76c44b8862f5c2af0f148fd",
+        "text": "Examples of Funded Covington Community Projects:\n\n*   **Redden Gardens (Eastside):** Allotment garden where individuals rent plots; includes pollinator garden & orchard. Partners with Center for Great Neighborhoods (CfGN).\n*   **Orchard Park (Westside):** Vacant lot transformed into urban farm/community space by resident group 'Grow the Cov' with CfGN & city support.\n*   **Riddle-Yates Community Garden:** Covington's oldest garden, managed by CfGN.\n*   **Make Goebel Great:** Resident-led park improvement project (native plants, stormwater solutions, goat grazing) with city collaboration.\n\n**Common Themes:** Often involve resident-led groups, partnerships (esp. with CfGN), and leverage local funding like the Neighborhood Grant Program.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:51:01.175Z",
+        "tags": [
+          "#example",
+          "#funded-project",
+          "#covington",
+          "#community-garden",
+          "#urban-farm",
+          "#park",
+          "#resident-led",
+          "#partnership",
+          "#center-for-great-neighborhoods",
+          "#neighborhood-grant",
+          "#finding"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:53:25.068Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:53:11Z - CfGN URL"
+        ],
+        "domain": "community development",
+        "id": "know_cdaf9b90df3347838f3fed45acc39cc6",
+        "text": "**The Center for Great Neighborhoods (CfGN) & Covington Neighborhood Grant Program - Contact/Source Info:**\n*   **CfGN Website:** https://www.greatneighborhoods.org\n*   **Grant Program Info:** Details often found in City of Covington documents (PDFs, news releases) or by contacting CfGN directly.\n*   **CfGN Contact:** Cate Douglas, cate@greatneighborhoods.org, (859) 547-5550.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:53:25.068Z",
+        "tags": [
+          "#contact",
+          "#source",
+          "#url",
+          "#covington",
+          "#center-for-great-neighborhoods",
+          "#neighborhood-program",
+          "#resource"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:53:51.480Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:53:42Z - KYSU Grant URL"
+        ],
+        "domain": "community development",
+        "id": "know_0dc8d825d1ff4ded8e2c3614e8cc7366",
+        "text": "**Kentucky State University (KYSU) Small-Scale Farm Grant Program - Source/Contact Info:**\n*   **Official Program Page:** https://www.kysu.edu/academics/college-ahnr/school-of-anr/co-op/small-scale-farm-grant-program.php\n*   **Contact/Submission:** M. Allison Noel, Kentucky State University, 400 East Main Street, CEB-218, Frankfort, KY 40601. Email: allison.noel@kysu.edu.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:53:51.480Z",
+        "tags": [
+          "#contact",
+          "#source",
+          "#url",
+          "#kysu",
+          "#small-farm",
+          "#kentucky",
+          "#resource"
+        ]
+      },
+      {
+        "createdAt": "2025-04-01T16:54:51.855Z",
+        "citations": [
+          "Perplexity Search Result 2025-04-01T16:54:20Z - Resource URLs"
+        ],
+        "domain": "community development",
+        "id": "know_4c3d6e435dbe47249108ef34b8974b4d",
+        "text": "**Resource URLs:**\n*   **GrantWatch.com:** https://www.grantwatch.com\n*   **Grant Ready Kentucky (GRKY):** https://grantreadyky.org\n*   **KY Farm to School Network:** https://www.kyfarmtoschool.com\n*   **Kentucky SBDC:** Official URL not found in search; related SBA KY page: https://www.sba.gov/district/kentucky\n*   **Kentucky Nonprofit Network (KNN):** URL not found in search.\n*   **Appalachian Community Fund (ACF):** Official URL not found in search.",
+        "projectId": "proj_a67039840514408386ec549c53668a8b",
+        "updatedAt": "2025-04-01T16:54:51.855Z",
+        "tags": [
+          "#url",
+          "#resource",
+          "#grantwatch",
+          "#grky",
+          "#farm-to-school",
+          "#sbdc",
+          "#knn",
+          "#acf",
+          "#kentucky"
+        ]
+      }
+    ],
+    "Domain": [
+      {
+        "createdAt": "2025-04-01T16:42:30.876Z",
+        "name": "community development"
+      }
+    ],
+    "User": []
+  },
+  "relationships": [
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_4c3d6e435dbe47249108ef34b8974b4d",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_0dc8d825d1ff4ded8e2c3614e8cc7366",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_cdaf9b90df3347838f3fed45acc39cc6",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_bc417d3ab76c44b8862f5c2af0f148fd",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_114ca14f324240969e810ae1157bdc08",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_7ad86d22fc07491d93142707b31c2325",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_ed47873488884b80959987fbeceba8fa",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_3005a083ac4a40bf84a78956904137d0",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_10e0f081ab2e4544a0ae094d767620a7",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_8a77ae38d8734a3ebac5a6b898e6c621",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_214bee7fd302417992ab7f239db8973b",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_1d2b459a330e47efb3190522ada1b38b",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_ddae3b81f4cc49a0af1722ee1c0fa8b3",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_8f2cb3e9827d4c4f8b7aad05929d39c7",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_21a95fc02a92468b9b66314a0c4542b8",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_194abba6995f4642a48d3f3c565f652e",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_490fcce48dfa4224af70f8633cb382e5",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_46e966ad7cc34674b935a742157b4fab",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_a62b36b9eb82453aadba7a7bbf64d981",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "know_33bca161d349445e8f818a96ce516f7d",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_0083c99c688d41f8b7339416edd30792",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_AqPuE2nduCMF",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_bcce1500a1ec467ea108e2e8db32c3bf",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_9EmfMIuNsdek",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_2ab2d76870ec49b3b2240a944157bdbe",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_T56rdXxXy2z0",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_7a34c74e53154de694ba26959c6d946c",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_OzI8ejLopmWs",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_73bfa22a4cf64521a611790d9f50265a",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_z7GlWJ9FIYKK",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_a4d1350e148d4841b2b1cbc1bcc88cc2",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_P6pXWlPZQg-Q",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_24b0aa4e381848fd87c9943b9865a479",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_-nU8tfvruGIt",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_61f9b270b9d14a23993cd8f7a2199613",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_Unzo84lG9lVN",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_7c1e7e7f0dc5405d93dd3d3098629f4b",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_zuOT7eA_S5-L",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "task_61009fc9c195400a90c7967f42430f24",
+      "type": "CONTAINS_TASK",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "sub_FJyeAX7Xv_rj",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "proj_a67039840514408386ec549c53668a8b",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "CONTAINS_KNOWLEDGE",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_FJyeAX7Xv_rj",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_61009fc9c195400a90c7967f42430f24",
+      "endNodeId": "sub_FJyeAX7Xv_rj",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_zuOT7eA_S5-L",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_7c1e7e7f0dc5405d93dd3d3098629f4b",
+      "endNodeId": "sub_zuOT7eA_S5-L",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_Unzo84lG9lVN",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_61f9b270b9d14a23993cd8f7a2199613",
+      "endNodeId": "sub_Unzo84lG9lVN",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_-nU8tfvruGIt",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_24b0aa4e381848fd87c9943b9865a479",
+      "endNodeId": "sub_-nU8tfvruGIt",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_P6pXWlPZQg-Q",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_a4d1350e148d4841b2b1cbc1bcc88cc2",
+      "endNodeId": "sub_P6pXWlPZQg-Q",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_z7GlWJ9FIYKK",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_73bfa22a4cf64521a611790d9f50265a",
+      "endNodeId": "sub_z7GlWJ9FIYKK",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_OzI8ejLopmWs",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_7a34c74e53154de694ba26959c6d946c",
+      "endNodeId": "sub_OzI8ejLopmWs",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_T56rdXxXy2z0",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_2ab2d76870ec49b3b2240a944157bdbe",
+      "endNodeId": "sub_T56rdXxXy2z0",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_9EmfMIuNsdek",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_bcce1500a1ec467ea108e2e8db32c3bf",
+      "endNodeId": "sub_9EmfMIuNsdek",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "sub_AqPuE2nduCMF",
+      "endNodeId": "plan_zfSjWzFUo_cs",
+      "type": "IS_SUBTOPIC_OF",
+      "properties": {}
+    },
+    {
+      "startNodeId": "task_0083c99c688d41f8b7339416edd30792",
+      "endNodeId": "sub_AqPuE2nduCMF",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_33bca161d349445e8f818a96ce516f7d",
+      "endNodeId": "cite_7db5b170b73f4253858a9fdf10be2bb9",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_a62b36b9eb82453aadba7a7bbf64d981",
+      "endNodeId": "cite_e34bb70b728f43518052462b3a8f11cc",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_46e966ad7cc34674b935a742157b4fab",
+      "endNodeId": "cite_45eaa26d93754c3b9fe93d65d78e7c5a",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_490fcce48dfa4224af70f8633cb382e5",
+      "endNodeId": "cite_de58a4ec43184dbb959994ba858142dc",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_194abba6995f4642a48d3f3c565f652e",
+      "endNodeId": "cite_1204cef1ca3d4278871a15e7bc1b2ea5",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_21a95fc02a92468b9b66314a0c4542b8",
+      "endNodeId": "cite_24ac058e1ea74a96b18430dd8fe707ed",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_8f2cb3e9827d4c4f8b7aad05929d39c7",
+      "endNodeId": "cite_49ab00a2470949cca49163def21f77d8",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_ddae3b81f4cc49a0af1722ee1c0fa8b3",
+      "endNodeId": "cite_1e7bea2920c14570896c74176137da5b",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_1d2b459a330e47efb3190522ada1b38b",
+      "endNodeId": "cite_04b377e61a5e4051aa20fb099b3b49c0",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_214bee7fd302417992ab7f239db8973b",
+      "endNodeId": "cite_223837212de849418a08f12e1c91982a",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_503041ea38864beab2900ee0c5d0c54e",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_814a72069fd94c4983e8a34e6c8580a1",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_3a3696e199af436089469e4acf596860",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_6f51eaf798454d91b0c319d49fad82b0",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_9f495ac779cb4132a8f8921623ed5b21",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_8769a36031d843d1b15fbcad4bda6ca1",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_372157bc223746ccaf41e9084419cc8b",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_59ba1a0636b246298514f4d789609e62",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_797788cfb54d4400bedd04dfc472190d",
+      "endNodeId": "cite_c050e56e744847618568b7175b40881b",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_8a77ae38d8734a3ebac5a6b898e6c621",
+      "endNodeId": "cite_5f14802c1a1a4255b0d6baacf4cc2d30",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_10e0f081ab2e4544a0ae094d767620a7",
+      "endNodeId": "cite_f4c31bed53b640218860f35b34637a87",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_3005a083ac4a40bf84a78956904137d0",
+      "endNodeId": "cite_db7fc9abc29749ed83c95c53fc3f0aad",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_ed47873488884b80959987fbeceba8fa",
+      "endNodeId": "cite_a9b0916e159f4f8494989c9589ec58bd",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_7ad86d22fc07491d93142707b31c2325",
+      "endNodeId": "cite_b1a228bc45e1498b81bfb8302b147694",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_114ca14f324240969e810ae1157bdc08",
+      "endNodeId": "cite_e924892d8d1c4ae99c0251d8561c8eab",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_bc417d3ab76c44b8862f5c2af0f148fd",
+      "endNodeId": "cite_bffb16187e354cf5b63dd3daa1669c82",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_cdaf9b90df3347838f3fed45acc39cc6",
+      "endNodeId": "cite_a27fa75652d042ffbe8be2437d0748bf",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_0dc8d825d1ff4ded8e2c3614e8cc7366",
+      "endNodeId": "cite_667e85408cdf43d0954773364f9d2cc0",
+      "type": "CITES",
+      "properties": {}
+    },
+    {
+      "startNodeId": "know_4c3d6e435dbe47249108ef34b8974b4d",
+      "endNodeId": "cite_de69481db35c4ab3ae0a2ae53b94acf7",
+      "type": "CITES",
+      "properties": {}
+    }
+  ]
+}

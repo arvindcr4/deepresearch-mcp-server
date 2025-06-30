@@ -1,0 +1,157 @@
+[
+  {
+    "createdAt": "2025-03-26T18:42:38.878Z",
+    "citations": [
+      "https://github.com/cyanheads/datasync",
+      "https://datasync.dev/docs",
+      "https://community.datasync.dev",
+      "https://hub.docker.com/r/cyanheads/datasync"
+    ],
+    "domain": "technical",
+    "id": "know_8edd2c00340b4959b5dd7bd493484a78",
+    "text": "# Project: DataSync - Open Source ETL Tool\n\n## Overview\nDataSync is an open-source Extract, Transform, Load (ETL) tool designed to simplify data integration between disparate systems. The project focuses on providing an intuitive UI for designing data pipelines while maintaining the flexibility and power required for complex enterprise scenarios. As the lead contributor and maintainer, cyanheads built this tool to address the gap between expensive enterprise ETL solutions and limited open-source alternatives.\n\n## Technologies Used\n- **Frontend:** React.js, Redux, Flow-based programming UI (custom-built)\n- **Backend:** Node.js, Express, Bull for job queuing\n- **Database:** MongoDB for configuration, plugin system for source/destination connectors\n- **Processing Engine:** Custom parallel processing engine written in Rust for performance\n- **Monitoring:** Prometheus, Grafana dashboards\n- **Testing:** Jest, Supertest, Property-based testing\n\n## Key Features\n- Visual pipeline designer with drag-and-drop interface\n- Pre-built connectors for 30+ common data sources and destinations\n- Custom transformation logic using JavaScript or Python\n- Real-time monitoring and alerting for data pipeline health\n- Fault-tolerance with automatic retry mechanisms\n- Extensive logging and audit trails\n- Horizontal scaling capabilities for high-volume workloads\n- REST API for programmatic control\n\n## Challenges and Solutions\n- **Challenge:** Creating an intuitive UI for complex data transformation logic.\n  **Solution:** Developed a custom visual programming interface that abstracts complex operations while still allowing for detailed customization when needed.\n\n- **Challenge:** Handling diverse data formats and schemas efficiently.\n  **Solution:** Implemented a unified data model internally with automatic schema mapping and validation.\n\n- **Challenge:** Ensuring reliability for mission-critical data pipelines.\n  **Solution:** Built comprehensive error handling, checkpointing, and recovery mechanisms with detailed observability.\n\n## Results\n- Over 5,000 GitHub stars and 170+ contributors from the community\n- 2,000+ active installations across organizations of all sizes\n- Powers data pipelines processing over 50TB of data daily in production environments\n- Featured in \"Top Data Tools of 2024\" by Data Engineering Weekly\n- Regular contributions from developers at major tech companies\n\n## Links\n- [GitHub Repository](https://github.com/cyanheads/datasync)\n- [Documentation](https://datasync.dev/docs)\n- [Community Forum](https://community.datasync.dev)\n- [Docker Hub](https://hub.docker.com/r/cyanheads/datasync)",
+    "projectId": "portfolio-main",
+    "tags": [
+      "project",
+      "open source",
+      "ETL",
+      "data engineering",
+      "Node.js",
+      "React",
+      "Rust"
+    ],
+    "updatedAt": "2025-03-26T18:42:38.878Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:42:21.219Z",
+    "citations": [
+      "https://github.com/cyanheads/codementor-platform",
+      "https://codementor.dev",
+      "https://medium.com/@cyanheads/building-an-interactive-learning-platform-7f3e9a2b8d12"
+    ],
+    "domain": "technical",
+    "id": "know_ea8b3222e36d4e26b73a0d865312413f",
+    "text": "# Project: CodeMentor Learning Platform\n\n## Overview\nCodeMentor is an interactive learning platform designed to help aspiring developers master programming skills through hands-on projects, real-time code evaluation, and personalized learning paths. The platform bridges the gap between theoretical knowledge and practical application by simulating real-world development scenarios.\n\n## Technologies Used\n- **Frontend:** Vue.js, Nuxt.js, TypeScript, Monaco Editor (VS Code-based)\n- **Backend:** Go, GraphQL, WebSockets for real-time features\n- **Database:** PostgreSQL, Redis for caching\n- **DevOps:** Docker, Kubernetes, GitHub Actions\n- **Cloud Infrastructure:** Google Cloud Platform (GCP)\n- **Testing:** Jest, Cypress, Go testing framework\n- **Code Execution:** Secure containerized execution environment\n\n## Key Features\n- Interactive code editor with real-time syntax checking and suggestions\n- Automated assessment and feedback on code quality and performance\n- Project-based learning paths with progressive difficulty levels\n- AI-powered personalized learning recommendations\n- Code challenges with time constraints and leaderboards\n- Mentor matching system for 1-on-1 guidance\n- Collaborative coding rooms for pair programming\n\n## Challenges and Solutions\n- **Challenge:** Creating a secure environment for executing untrusted user code.\n  **Solution:** Implemented a sandboxed containerization system with strict resource limits and security policies that isolates each code execution instance.\n\n- **Challenge:** Providing real-time feedback for multiple programming languages.\n  **Solution:** Developed a microservice architecture where language-specific services analyze code and provide instant feedback through WebSocket connections.\n\n- **Challenge:** Scaling during usage spikes without performance degradation.\n  **Solution:** Implemented auto-scaling clusters on GCP with intelligent caching strategies and resource allocation based on usage patterns.\n\n## Results\n- Platform serves over 50,000 active monthly users\n- Users experience an average 40% faster learning progression compared to traditional methods\n- 78% completion rate for learning paths (industry average is ~15%)\n- Winner of 'Best Educational Tech Platform' at Seattle Tech Awards 2024\n- Successfully partnered with 15 tech companies for recruitment opportunities\n\n## Links\n- [GitHub Repository](https://github.com/cyanheads/codementor-platform)\n- [Live Platform](https://codementor.dev)\n- [Case Study](https://medium.com/@cyanheads/building-an-interactive-learning-platform-7f3e9a2b8d12)",
+    "projectId": "portfolio-main",
+    "tags": [
+      "project",
+      "education",
+      "learning platform",
+      "Vue.js",
+      "Go",
+      "interactive coding"
+    ],
+    "updatedAt": "2025-03-26T18:42:21.219Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:42:55.013Z",
+    "citations": [
+      "https://github.com/cyanheads/neurochat",
+      "https://neurochat.app",
+      "https://doi.org/10.1145/3581941.3581954"
+    ],
+    "domain": "technical",
+    "id": "know_1d9b88ea4f2f448c926382e7d899a27c",
+    "text": "# Project: NeuroChat AI Assistant\n\n## Overview\nNeuroChat is an AI-powered conversational assistant designed specifically for neurodivergent individuals, focusing on clear communication, routine management, and emotional support. The application uses natural language processing to provide a patient, unambiguous interface that adapts to the user's communication preferences and cognitive needs.\n\n## Technologies Used\n- **Frontend:** React, Typescript, Progressive Web App (PWA)\n- **Backend:** Python, FastAPI, WebSockets\n- **AI/ML:** PyTorch, Hugging Face Transformers, Custom NLP models\n- **Database:** MongoDB for user data, Pinecone for vector embeddings\n- **Infrastructure:** AWS (ECS, Lambda, SageMaker)\n- **Security:** End-to-end encryption, SOC 2 compliance\n- **Accessibility:** WCAG 2.1 AAA compliance, screen reader optimization\n\n## Key Features\n- Adaptive conversation style based on user preferences and cognitive profile\n- Visual schedule and routine management with customizable reminders\n- Emotional intelligence features for recognizing user states and providing appropriate support\n- Simplified explanation mode for complex topics with optional visual aids\n- Sensory overload detection and calming interface transitions\n- Privacy-focused design with local processing for sensitive data\n- Customizable UI with sensory-friendly themes and layouts\n\n## Challenges and Solutions\n- **Challenge:** Creating AI models that truly understand and accommodate neurodivergent communication patterns.\n  **Solution:** Collaborated with neurodivergent consultants and collected diverse training data, then fine-tuned models specifically for different cognitive profiles.\n\n- **Challenge:** Balancing feature richness with simplicity and clarity of interface.\n  **Solution:** Implemented progressive disclosure UI patterns and user-controlled complexity levels that adapt to individual preferences and cognitive load.\n\n- **Challenge:** Ensuring the app remains helpful without becoming overwhelming.\n  **Solution:** Developed an attention-aware interface that monitors signs of cognitive load and adjusts information density and interaction patterns accordingly.\n\n## Results\n- User base of 35,000+ active monthly users\n- Average session time of 18 minutes, indicating strong engagement\n- 92% of users report improved daily functioning and reduced anxiety\n- Winner of the 'Tech for Good' award at the Inclusive Innovation Summit\n- Featured in psychology and technology publications for pioneering approach\n\n## Links\n- [GitHub Repository](https://github.com/cyanheads/neurochat)\n- [Web Application](https://neurochat.app)\n- [Research Paper](https://doi.org/10.1145/3581941.3581954)",
+    "projectId": "portfolio-main",
+    "tags": [
+      "project",
+      "AI",
+      "accessibility",
+      "neurodiversity",
+      "Python",
+      "React",
+      "NLP"
+    ],
+    "updatedAt": "2025-03-26T18:42:55.013Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:43:13.677Z",
+    "citations": [],
+    "domain": "technical",
+    "id": "know_5894c5e7cd674206b82470c4d46265e7",
+    "text": "# About Cyanheads: Development Philosophy and Personal Approach\n\n## Development Philosophy\n\nAs a software developer, I approach each project with a blend of pragmatism and innovation. I believe that great software strikes a balance between elegant technical solutions and genuine user needs. My development philosophy centers around these core principles:\n\n### User-Centered Design\nTechnology should serve people, not the other way around. I start every project by deeply understanding the end users and their needs, then work backward to create solutions that feel intuitive and empowering.\n\n### Sustainable Code\nI write code that's meant to last. This means emphasizing readability, thorough documentation, comprehensive testing, and thoughtful architecture that can evolve over time without accumulating technical debt.\n\n### Continuous Learning\nThe tech landscape evolves rapidly, and I embrace this by dedicating time each week to learning new tools, languages, and approaches. I believe that being a great developer means being a perpetual student.\n\n### Ethical Technology\nI'm committed to building technology that respects user privacy, promotes accessibility, and considers potential social impacts. I believe that ethical considerations should be built into the development process from day one.\n\n## Personal Interests\n\nBeyond coding, I'm passionate about several interests that inform my work and keep me balanced:\n\n### Open Source Contribution\nI'm an active contributor to several open source projects, particularly in the data visualization and accessibility spaces. I believe in giving back to the community that has provided so many tools and opportunities.\n\n### Hiking and Outdoor Photography\nLiving in Seattle provides amazing access to nature. I frequently explore the hiking trails around the Pacific Northwest, capturing landscape photography that helps me maintain perspective and creativity.\n\n### Electronic Music Production\nAs a hobby producer, I create ambient and electronic music that exercises the creative parts of my brain in different ways than coding. The logical patterns of music production have surprising parallels to software architecture.\n\n### Tech Mentorship\nI regularly mentor coding bootcamp graduates and early-career developers. Helping others navigate their tech journey is incredibly rewarding and helps me continually reassess and articulate my own understanding.\n\n### Language Learning\nI'm currently learning Japanese and have intermediate proficiency in Spanish. I find that understanding different languages improves my ability to think systematically and approach problems from multiple angles.\n\n## Work-Life Integration\n\nRather than pursuing traditional work-life balance, I prefer work-life integration where my professional skills, personal interests, and values form a cohesive whole. This approach keeps me energized, prevents burnout, and allows me to bring my authentic self to both my personal projects and professional work.",
+    "projectId": "portfolio-main",
+    "tags": [
+      "personal",
+      "philosophy",
+      "interests",
+      "values",
+      "approach"
+    ],
+    "updatedAt": "2025-03-26T18:43:13.677Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:41:29.437Z",
+    "citations": [],
+    "domain": "technical",
+    "id": "know_c9ebf9d01d0841b28fbdfc508a3754ef",
+    "text": "# Professional Background for cyanheads\n\nCyanheads (Alex Chen) is a full-stack software developer based in Seattle, WA with 7 years of professional experience in the tech industry. They specialize in building scalable web applications and cloud-native solutions with a focus on excellent user experience and performance.\n\n## Career History\n\n### Senior Software Engineer at Nimbus Cloud Solutions (2023-Present)\n- Lead developer for the company's flagship cloud management platform\n- Architected and implemented microservices infrastructure using Kubernetes and Docker\n- Mentored junior developers and established coding standards and best practices\n- Technologies: TypeScript, React, Node.js, PostgreSQL, Kubernetes, AWS\n\n### Software Engineer at TechForward (2020-2023)\n- Developed and maintained multiple client-facing web applications\n- Implemented CI/CD pipelines that reduced deployment time by 70%\n- Collaborated with design and product teams to create intuitive user interfaces\n- Technologies: JavaScript, React, Express, MongoDB, GitHub Actions, Azure\n\n### Frontend Developer at InnovateSoft (2018-2020)\n- Created responsive web interfaces for enterprise clients\n- Refactored legacy codebase to modern standards, improving performance by 40%\n- Implemented comprehensive unit and integration test suites\n- Technologies: JavaScript, Vue.js, CSS/SCSS, Jest\n\n## Education\n\n- Bachelor of Science in Computer Science, University of Washington (2014-2018)\n- AWS Certified Solutions Architect - Associate\n- MongoDB Certified Developer",
+    "projectId": "portfolio-main",
+    "tags": [
+      "bio",
+      "professional background",
+      "career",
+      "education"
+    ],
+    "updatedAt": "2025-03-26T18:41:29.437Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:41:39.858Z",
+    "citations": [],
+    "domain": "technical",
+    "id": "know_111b5c3bbc3d416883aab006ac1b8f2c",
+    "text": "# Technical Skills Profile\n\n## Programming Languages\n- **Advanced:** JavaScript/TypeScript, Python, HTML/CSS\n- **Intermediate:** Go, SQL, Rust, Bash/Shell\n- **Familiar:** C++, Java, Ruby\n\n## Frontend Technologies\n- **Frameworks/Libraries:** React.js, Vue.js, Next.js, Svelte\n- **State Management:** Redux, Zustand, Pinia, Context API\n- **Styling:** Tailwind CSS, styled-components, SCSS/SASS, CSS Modules\n- **Testing:** Jest, React Testing Library, Cypress\n\n## Backend Technologies\n- **Frameworks/Libraries:** Node.js (Express, Nest.js), FastAPI, Django\n- **Databases:** PostgreSQL, MongoDB, Redis, MySQL, DynamoDB\n- **API Design:** RESTful APIs, GraphQL, gRPC, Swagger/OpenAPI\n- **Authentication:** OAuth 2.0, JWT, Auth0, Firebase Auth\n\n## DevOps & Cloud\n- **Cloud Platforms:** AWS (Certified Associate), Azure, Google Cloud Platform\n- **Infrastructure as Code:** Terraform, CloudFormation, Pulumi\n- **CI/CD:** GitHub Actions, Jenkins, CircleCI, ArgoCD\n- **Containerization:** Docker, Kubernetes, Docker Compose\n- **Monitoring:** Prometheus, Grafana, New Relic, AWS CloudWatch\n\n## Tools & Methodologies\n- **Version Control:** Git, GitHub, GitLab, Bitbucket\n- **Project Management:** Agile, Scrum, Kanban, Jira, Trello\n- **Design:** Figma, Adobe XD, Responsive Design principles\n- **Testing Methodologies:** TDD, BDD, Unit/Integration Testing\n\n## Other Skills\n- Web Performance Optimization\n- Serverless Architecture\n- JAMstack Development\n- Progressive Web Apps (PWAs)\n- Accessibility (WCAG) implementation\n- SEO best practices",
+    "projectId": "portfolio-main",
+    "tags": [
+      "skills",
+      "technical capabilities",
+      "programming",
+      "tools",
+      "frameworks"
+    ],
+    "updatedAt": "2025-03-26T18:41:39.858Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:41:52.619Z",
+    "citations": [
+      "https://github.com/cyanheads/cloudnative-dashboard",
+      "https://demo.cloudnative-dashboard.com"
+    ],
+    "domain": "technical",
+    "id": "know_b3881c98f99c41a0992686aee015ad57",
+    "text": "# Project: CloudNative Dashboard\n\n## Overview\nA comprehensive cloud resource management platform that helps DevOps teams monitor and optimize their infrastructure across multiple cloud providers. The dashboard provides real-time analytics, cost optimization recommendations, and automated scaling capabilities.\n\n## Technologies Used\n- **Frontend:** React.js, TypeScript, D3.js for data visualization, Tailwind CSS\n- **Backend:** Node.js, Express, GraphQL API\n- **Database:** PostgreSQL, Redis for caching\n- **Infrastructure:** AWS (EC2, Lambda, S3, DynamoDB)\n- **Monitoring:** Prometheus, Grafana\n- **CI/CD:** GitHub Actions, Docker\n\n## Key Features\n- Multi-cloud provider integration (AWS, Azure, GCP)\n- Real-time resource utilization monitoring with customizable alerts\n- Cost forecasting and anomaly detection\n- Infrastructure as Code templates generation\n- Role-based access control system\n- Automated scaling policies based on custom metrics\n\n## Challenges and Solutions\n- **Challenge:** Handling large volumes of real-time data from multiple cloud providers.\n  **Solution:** Implemented a scalable event-driven architecture with message queues and workers to process data asynchronously.\n\n- **Challenge:** Creating intuitive visualizations for complex cloud resource relationships.\n  **Solution:** Developed custom D3.js visualization components with interactive tooltips and drill-down capabilities.\n\n- **Challenge:** Maintaining consistent performance across different user scenarios.\n  **Solution:** Implemented aggressive caching strategies and GraphQL query optimization to reduce response times.\n\n## Results\n- Reduced cloud infrastructure costs by 35% for pilot customers\n- Improved incident response time by 60% with real-time alerting\n- Successfully onboarded 12 enterprise clients within the first 6 months\n- Achieved 99.95% uptime for the platform\n\n## Links\n- [GitHub Repository](https://github.com/cyanheads/cloudnative-dashboard)\n- [Live Demo](https://demo.cloudnative-dashboard.com)",
+    "projectId": "portfolio-main",
+    "tags": [
+      "project",
+      "cloud",
+      "dashboard",
+      "AWS",
+      "React",
+      "Node.js",
+      "DevOps"
+    ],
+    "updatedAt": "2025-03-26T18:41:52.619Z"
+  },
+  {
+    "createdAt": "2025-03-26T18:42:05.541Z",
+    "citations": [
+      "https://github.com/cyanheads/ecotrack-app",
+      "https://apps.apple.com/us/app/ecotrack",
+      "https://play.google.com/store/apps/details?id=com.cyanheads.ecotrack"
+    ],
+    "domain": "technical",
+    "id": "know_24f1739b78e1430e90a89cfe6c208d63",
+    "text": "# Project: EcoTrack Mobile App\n\n## Overview\nEcoTrack is a mobile application that helps environmentally-conscious individuals track and reduce their carbon footprint through daily activities. The app combines gamification with practical sustainability tools to encourage users to adopt eco-friendly habits and make informed environmental choices.\n\n## Technologies Used\n- **Frontend:** React Native, TypeScript, Redux\n- **Backend:** Python, FastAPI, Celery\n- **Database:** MongoDB, PostgreSQL for analytics\n- **APIs:** Google Maps API, Carbon Footprint API, Weather API\n- **Authentication:** Firebase Auth, OAuth 2.0\n- **Analytics:** TensorFlow for usage pattern analysis\n- **CI/CD:** Bitbucket Pipelines, Fastlane\n\n## Key Features\n- Personalized carbon footprint calculator based on lifestyle choices\n- Transportation mode detection and eco-friendly route recommendations\n- Gamified challenges and community competitions\n- Local sustainable business directory\n- Detailed analytics and progress tracking\n- Social sharing and friend challenges\n- AR feature to visualize environmental impact\n\n## Challenges and Solutions\n- **Challenge:** Accurately determining carbon footprint from varied user activities.\n  **Solution:** Developed a machine learning model trained on verified carbon emission datasets to provide accurate estimates based on user inputs and activity patterns.\n\n- **Challenge:** Battery drain from continuous location tracking.\n  **Solution:** Implemented intelligent tracking algorithms that adjust frequency based on user movement patterns and battery levels.\n\n- **Challenge:** Making complex environmental data accessible and engaging.\n  **Solution:** Created an intuitive visualization system with customizable dashboards and achievement-based progression.\n\n## Results\n- Over 100,000 downloads on iOS and Android platforms\n- Average user carbon footprint reduction of 15% after 3 months of use\n- Featured in \"Best Environmental Apps of 2024\" by GreenTech Magazine\n- 4.7/5 star rating across app stores\n- Successfully raised $1.2M in seed funding based on app traction\n\n## Links\n- [GitHub Repository](https://github.com/cyanheads/ecotrack-app)\n- [App Store](https://apps.apple.com/us/app/ecotrack)\n- [Google Play Store](https://play.google.com/store/apps/details?id=com.cyanheads.ecotrack)",
+    "projectId": "portfolio-main",
+    "tags": [
+      "project",
+      "mobile app",
+      "React Native",
+      "Python",
+      "sustainability",
+      "carbon footprint"
+    ],
+    "updatedAt": "2025-03-26T18:42:05.541Z"
+  }
+]
