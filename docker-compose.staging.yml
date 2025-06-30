@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  deepresearch-mcp-staging:
+    image: deepresearch-mcp-server:${IMAGE_TAG:-latest}
+    container_name: deepresearch-mcp-staging
+    restart: unless-stopped
+    ports:
+      - "3001:3000"  # Different port for staging
+    environment:
+      NODE_ENV: staging
+      LOG_LEVEL: info
+      NEO4J_URI: bolt://neo4j-staging:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD_STAGING}
+      BACKUP_FILE_DIR: /app/atlas-backups
+      BACKUP_MAX_COUNT: 10
+      # Add staging-specific environment variables
+      RATE_LIMIT_WINDOW_MS: 900000  # 15 minutes
+      RATE_LIMIT_MAX_REQUESTS: 100
+    volumes:
+      - staging_backups:/app/atlas-backups
+      - staging_logs:/app/logs
+    networks:
+      - staging-network
+    depends_on:
+      - neo4j-staging
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.deepresearch-staging.rule=Host(`staging.deepresearch.local`)"
+      - "traefik.http.routers.deepresearch-staging.tls=true"
+      - "traefik.http.services.deepresearch-staging.loadbalancer.server.port=3000"
+
+  neo4j-staging:
+    image: neo4j:5-community
+    container_name: neo4j-staging
+    restart: unless-stopped
+    ports:
+      - "7475:7474"   # HTTP Browser (different port)
+      - "7688:7687"   # Bolt protocol (different port)
+    environment:
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD_STAGING}
+      NEO4J_dbms_usage__report_enabled: "false"
+      NEO4J_server_bolt_listen__address: ":7687"
+      NEO4J_server_bolt_advertised__address: ":7687"
+      NEO4J_server_memory_heap_initial__size: "1G"
+      NEO4J_server_memory_heap_max__size: "2G"
+      NEO4J_server_jvm_additional: "-XX:+HeapDumpOnOutOfMemoryError"
+      NEO4J_db_logs_query_enabled: "INFO"
+      NEO4J_db_logs_query_threshold: "1s"
+      NEO4J_db_transaction_timeout: "10s"
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
+      # Staging-specific configurations
+      NEO4J_dbms_logs_debug_level: "INFO"
+    volumes:
+      - neo4j_staging_data:/data
+      - neo4j_staging_logs:/logs
+      - neo4j_staging_import:/var/lib/neo4j/import
+      - neo4j_staging_backups:/backups
+    networks:
+      - staging-network
+
+  # Optional: Monitoring and logging for staging
+  prometheus-staging:
+    image: prom/prometheus:latest
+    container_name: prometheus-staging
+    restart: unless-stopped
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./monitoring/prometheus-staging.yml:/etc/prometheus/prometheus.yml
+      - prometheus_staging_data:/prometheus
+    networks:
+      - staging-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+
+volumes:
+  staging_backups:
+    driver: local
+  staging_logs:
+    driver: local
+  neo4j_staging_data:
+    driver: local
+  neo4j_staging_logs:
+    driver: local
+  neo4j_staging_import:
+    driver: local
+  neo4j_staging_backups:
+    driver: local
+  prometheus_staging_data:
+    driver: local
+
+networks:
+  staging-network:
+    driver: bridge
+    name: deepresearch-staging-network
